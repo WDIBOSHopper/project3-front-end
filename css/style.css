@@ -1,0 +1,10 @@
+#registration-form {
+    display: none;
+    position: absolute;
+    top: 15%;
+    background: #FFF;
+    width: 50%;
+    padding: 3% 3% 3% 3%;
+    margin-left: 20%;
+}
+
