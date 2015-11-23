@@ -73,40 +73,15 @@
     <!-- Page Content -->
     <div class="container">
 
-        <hr class="featurette-divider">
+    <hr class="featurette-divider">
 
-        <!-- First Featurette -->
-        <div class="featurette" id="about">
-            <img class="featurette-image img-circle img-responsive pull-right" src="http://placehold.it/500x500">
-            <h2 class="featurette-heading">Lauren's Blog
-                <span class="text-muted">Most Recent post</span>
-            </h2>
-            <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
-        </div>
+    <!-- Featurettes -->
+    <div id="putBlogPosts">
+      
+    </div> 
+       
 
-        <hr class="featurette-divider">
 
-        <!-- Second Featurette -->
-        <div class="featurette" id="services">
-            <img class="featurette-image img-circle img-responsive pull-left" src="http://placehold.it/500x500">
-            <h2 class="featurette-heading">Bill's blog
-                <span class="text-muted">Most recent post</span>
-            </h2>
-            <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
-        </div>
-
-        <hr class="featurette-divider">
-
-        <!-- Third Featurette -->
-        <div class="featurette" id="contact">
-            <img class="featurette-image img-circle img-responsive pull-right" src="http://placehold.it/500x500">
-            <h2 class="featurette-heading">Rechel's blog
-                <span class="text-muted">Most recent post</span>
-            </h2>
-            <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
-        </div>
-
-        <hr class="featurette-divider">
 
         <!-- Footer -->
         <footer>
@@ -167,13 +142,33 @@
         </div>
     </div>
 </div>
+<!-- Handlebars Templates -->
+<!-- Index template -->
+<script id="blogPosts" type="text/x-handlebars-template">
+ {{#each posts}}
+ <div class="featurette" id="about">
+            <img class="featurette-image img-circle img-responsive pull-right" src="http://placehold.it/500x500">
+            <h2 class="featurette-heading">{{blogTitle}}
+                <span class="text-muted">{{title}}</span>
+            </h2>
+            <p class="lead">{{content}}</p>
+        </div>
 
+        <hr class="featurette-divider">
+  {{/each}}
+</script>
 
 <!-- jQuery -->
-   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js" integrity="sha256-ivk71nXhz9nsyFDoYoGf2sbjrR9ddh+XDkCcfZxjvcM=" crossorigin="anonymous"></script>```
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js" integrity="sha256-ivk71nXhz9nsyFDoYoGf2sbjrR9ddh+XDkCcfZxjvcM=" crossorigin="anonymous"></script>
+
+<!-- handlebars -->
+<script src="./js/handlebars-v4.0.4.js"></script>
 
 <!-- ​Bootstrap -->
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
+
+  <!--  Local Scripts -->
+  <script src="./js/handlebars_module.js" type = "application/javascript"></script>
 </body>
 
 </html>
