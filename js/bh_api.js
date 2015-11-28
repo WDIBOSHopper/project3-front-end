@@ -30,7 +30,7 @@ var bhApi = {
     this.ajax({
       method: 'POST',
       // url: 'http://httpbin.org/post',
-      url: this.shs + '/signup',
+      url: this.bh + '/signup',
       data: credentials,
       dataType: 'json'
     }, callback);
@@ -40,7 +40,7 @@ var bhApi = {
     this.ajax({
       method: 'POST',
       // url: 'http://httpbin.org/post',
-      url: this.shs + '/login',
+      url: this.bh + '/login',
       contentType: 'application/json; charset=utf-8',
       data: JSON.stringify(credentials),
       dataType: 'json'
@@ -50,22 +50,22 @@ var bhApi = {
   logout: function(callback) {
     this.ajax({
       method: 'DELETE',
-      url: this.shs + '/logout/',
+      url: this.bh + '/logout/',
     }, callback);
   },
 
 };
 
-$('#registrationForm').on('submit', function(){
-  console.log("submitted");
-  return false;
-});
+// $('#registrationForm').on('submit', function(){
+//   console.log("submitted");
+//   return false;
+// });
 
-// $('#submit').on('click', function(){
-//   bhApi.register(signupData, function (err, data){
-//     if (err){
-//       return console.error(err);
-//     } 
-//     return console.log(data);
-//   });
-// });  
+$('#registrationForm').on('submit', function(){
+  bhApi.register(signupData, function (err, data){
+    if (err){
+      return console.error(err);
+    } 
+    return console.log(data);
+  });
+});  
