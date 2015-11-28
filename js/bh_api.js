@@ -63,7 +63,8 @@ var bhApi = {
 
 $('#registrationForm').on('submit', function(e){
   e.preventDefault();
-  bhApi.register(signupData, function (err, data){    
+  var data = this.serialize();
+  bhApi.register(data, function (err, data){    
     if (err){
       console.error(err);
       return false;
