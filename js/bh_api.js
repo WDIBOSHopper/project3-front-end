@@ -1,3 +1,19 @@
+var signupData = {
+  username: "rachel3",
+  email: "r@r.com",
+  password: "123"
+};
+
+var signinData = {
+  email: 'rachel3',
+  password: 123
+};
+
+
+
+
+
+
 var bhApi = {
 
   bh: 'https:/localhost:3000',
@@ -15,8 +31,7 @@ var bhApi = {
       method: 'POST',
       // url: 'http://httpbin.org/post',
       url: this.shs + '/signup',
-      contentType: 'application/json; charset=utf-8',
-      data: JSON.stringify(credentials),
+      data: credentials,
       dataType: 'json'
     }, callback);
   },
@@ -35,8 +50,22 @@ var bhApi = {
   logout: function(callback) {
     this.ajax({
       method: 'DELETE',
-      url: this.shs + '/logout/' + user.userID,
+      url: this.shs + '/logout/',
     }, callback);
   },
 
 };
+
+$('#registrationForm').on('submit', function(){
+  console.log("submitted");
+  return false;
+});
+
+// $('#submit').on('click', function(){
+//   bhApi.register(signupData, function (err, data){
+//     if (err){
+//       return console.error(err);
+//     } 
+//     return console.log(data);
+//   });
+// });  
