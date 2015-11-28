@@ -56,12 +56,8 @@ var bhApi = {
 
 };
 
-// $('#registrationForm').on('submit', function(){
-//   console.log("submitted");
-//   return false;
-// });
 
-$('#registrationForm').on('submit', function(e){
+$('#registration-form').on('submit', function(e){
   e.preventDefault();
   var data = this.serialize();
   bhApi.register(data, function (err, data){    
