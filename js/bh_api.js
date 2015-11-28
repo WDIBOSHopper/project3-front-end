@@ -1,7 +1,7 @@
 var signupData = {
-  username: "rachel3",
-  email: "r@r.com",
-  password: "123"
+  username: "sam2",
+  email: "s@s",
+  password: "1"
 };
 
 var signinData = {
@@ -16,7 +16,7 @@ var signinData = {
 
 var bhApi = {
 
-  bh: 'https:/localhost:3000',
+  bh: 'http://localhost:3000',
 
   ajax: function(config, cb) {
     $.ajax(config).done(function(data, textStatus, jqxhr) {
@@ -61,11 +61,14 @@ var bhApi = {
 //   return false;
 // });
 
-$('#registrationForm').on('submit', function(){
-  bhApi.register(signupData, function (err, data){
+$('#registrationForm').on('submit', function(e){
+  e.preventDefault();
+  bhApi.register(signupData, function (err, data){    
     if (err){
-      return console.error(err);
+      console.error(err);
+      return false;
     } 
-    return console.log(data);
+    console.log(data);
+    return false;
   });
 });  
