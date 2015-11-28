@@ -9,51 +9,30 @@
     <meta name="author" content="">
 
 
+
+
+
     <!-- For sample logo only-->
     <!--Remove if you no longer need this font-->
     <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Aguafina+Script">
     <!--For sample logo only-->
 
 
+
+
+
+
+    <!--
     <link rel="stylesheet" type="text/css" href="lib/bootstrap/css/bootstrap.css">
     <link rel="stylesheet" href="lib/font-awesome/css/font-awesome.css">
-
-    <script src="js/site.js" type="text/javascript"></script>
-        <!-- jquery being provided off the internet
-        <script src="lib/jquery-1.7.2.min.js" type="text/javascript"></script>
-        <script src="lib/jquery.isotope.min.js"></script>
-        -->
-    <link rel="stylesheet" href="stylesheets/isotope.css">
-    <link rel="stylesheet" href="lib/fancy-zoom/css/fancyzoom.css" type="text/css" />
-	<script type="text/javascript" src="lib/fancy-zoom/src/fancyzoom.js"></script>
-
-
-	<script type="text/javascript" charset="utf-8">
-
-        $(function(){
-            var width = $(window).width();
-            $(window).resize(function(){
-                setTimeout(function(){
-                    $('#blog-posts').isotope('reLayout');}, 100);
-            });
-
-			$('.blog-post .thumbnail img').fancyZoom({closeOnClick: true, directory:'lib/fancy-zoom/img/'});
-
-            $('#blog-posts').imagesLoaded( function(){
-                $(this).isotope({
-                    resizable:false,
-                    layoutMode: 'straightDown'
-                });
-            });
-
-            fancyFilter('.filter', '#blog-posts');
-        });
-
-    </script>
-
-
+    <script src="javascripts/site.js" type="text/javascript"></script>
     <link rel="stylesheet" type="text/css" href="stylesheets/theme.css">
-
+    <script src="lib/jquery-1.7.2.min.js" type="text/javascript"></script>
+    -->
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/font-awesome.css">
+    <script src="js/jquery-1.7.2.min.js" type="text/javascript"></script>
+    <link rel="stylesheet" type="text/css" href="css/theme.css">
 
 
     <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
@@ -62,14 +41,11 @@
     <![endif]-->
 
     <!-- Le fav and touch icons -->
-    <!--
     <link rel="shortcut icon" href="../assets/ico/favicon.ico">
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
     <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
-    -->
-
   </head>
 
   <!--[if lt IE 7 ]> <body class="ie ie6"> <![endif]-->
@@ -84,10 +60,9 @@
         <div class="navbar-inner">
                 <ul class="nav pull-right">
 
-                <!--
-                <li class="hidden-phone"><a href="#" role="button">Settings</a></li>
-                -->
-
+                    <!--
+                    <li class="hidden-phone"><a href="#" role="button">Settings</a></li>
+                    -->
                     <li id="fat-menu" class="dropdown">
                         <a href="#" role="button" class="dropdown-toggle" data-toggle="dropdown">
                             <i class="icon-user"></i> Bill Barber
@@ -96,15 +71,18 @@
 
                         <ul class="dropdown-menu">
                             <li><a tabindex="-1" href="#">My Account</a></li>
+                            <!--
+                            <li><a href="reset-password.html"><span>Forgot Password Page</span></a></li>
                             <li class="divider"></li>
                             <li><a tabindex="-1" class="visible-phone" href="#">Settings</a></li>
                             <li class="divider visible-phone"></li>
+                            -->
                             <li><a tabindex="-1" href="sign-in.html">Logout</a></li>
                         </ul>
                     </li>
 
                 </ul>
-                <a class="brand" href="index.html">My Blogs</a>
+                <a class="brand" href="index.html">Create your own blog - quick as a bunny</a>
         </div>
     </div>
 
@@ -113,13 +91,54 @@
         <div id="phone-navigation">
             <select class="selectnav" id="phone-menu">
 
-                <option value="index.html" > Home</option>
+                <option value="index.html" selected="selected"> Home</option>
 
-                <option value="myPages.html" > My Pages</option>
+                <!-- <option value="reports.html" > Reports</option> -->
 
-                <option value="blog.html" > My Blogs</option>
+                <option value="components.html" > Components</option>
 
-                <option value="myProfile.html" > My Profile</option>
+                <option value="" > My Blogs</option>
+
+                <option value="all_blogs.html" >- Show All</option>
+
+                <option value="active_blogs.html" >- Show Most Recent</option>
+
+                <option value="create-blog.html" >- Create New Post</option>
+
+                <option value="" > My Blog Posts</option>
+
+                <option value="blog_template.html" >- Show All</option>
+
+                <option value="blog_template.html" >- Show Most Recent</option>
+
+                <option value="create-post.html" >- Create New Post</option>
+
+                <option value="" > My Pages</option>
+
+                <option value="about-us-template.html" >- About Me</option>
+
+                <option value="my-profile.html" >- My Profile</option>
+
+                <option value="" > My Media</option>
+
+                <option value="show-images.html" >- Show All Images</option>
+
+                <option value="upload-image.html" >- Upload New Image</option>
+
+                <option value="delete-image.html" >- Delete Image</option>
+
+                <!--
+                <option value="upload-video.html" >- Upload New Video</option>
+
+                <option value="" > Settings</option>
+
+                <option value="sign-in.html" >- Sign In Page</option>
+
+                <option value="register.html" >- Sign Up Page</option>
+
+                <option value="reset-password.html" >- Reset Password Page</option>
+
+                <option value="pricing.html" > Pricing</option>
 
                 <option value="" > Settings</option>
 
@@ -128,33 +147,27 @@
                 <option value="sign-up.html" >- Sign Up Page</option>
 
                 <option value="reset-password.html" >- Reset Password Page</option>
+                -->
 
-            <!--    <option value="pricing.html" > Pricing</option>
-
-                <option value="" > Settings</option>
-
-                <option value="sign-in.html" >- Sign In Page</option>
-
-                <option value="sign-up.html" >- Sign Up Page</option>
-
-                <option value="reset-password.html" >- Reset Password Page</option>
-            -->
 
                 <option value="">----------------------</option>
 
-                <option value="index.html" > Home</option>
+                <option value="index.html" selected="selected"> Home</option>
 
-                <option value="myPages.html" > My Pages</option>
+                <!--
+                <option value="reports.html" > Reports</option>
 
-                <option value="blog.html" > My Blogs</option>
+                <option value="components.html" > UI Features</option>
 
-                <option value="myProfile.html" > My Profile</option>
+                <option value="pricing.html" > Pricing</option>
+                -->
 
-            <!-- <option value="pricing.html" > Pricing</option>
+                <option value="blog_template.html" > Blogs</option>
 
                 <option value="media.html" > Media</option>
 
-                <option value="blog.html" selected="selected"> Blog</option>
+                <!--
+                <option value="blog_template.html" > Blog</option>
 
                 <option value="help.html" > Help</option>
 
@@ -167,17 +180,72 @@
                 <option value="tables.html" > Tables</option>
 
                 <option value="icons.html" > Font Awesome</option>
-            -->
-
+                -->
             </select>
         </div>
 
         <ul class="nav nav-tabs">
             <li class="active"><a href="index.html"><i class="icon-dashboard"></i> <span>Home</span></a></li>
-            <li ><a href="myPages.html" ><i class="icon-bar-chart"></i> <span>My Pages</span></a></li>
-            <li ><a href="blog.html" ><i class="icon-cogs"></i> <span>My Blogs</span></a></li>
-            <li ><a href="myProfile.html" ><i class="icon-cogs"></i> <span>My Profile</span></a></li>
-            <li ><a href="logout.html" ><i class="icon-cogs"></i> <span>Logout</span></a></li>
+            <!--
+            <li ><a href="reports.html" ><i class="icon-bar-chart"></i> <span>Reports</span></a></li>
+            <li ><a href="components.html" ><i class="icon-cogs"></i> <span>Components</span></a></li>
+            <li ><a href="pricing.html"><i class="icon-magic"></i> <span>Pricing</span></a></li>
+            -->
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-cog"></i> My Blogs <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                    <li><a href="blog_template.html"><span>Show All</span></a></li>
+                    <li><a href="active_blogs.html"><span>Show Most Active</span></a></li>
+                    <li><a href="create-blog.html"><span>Create New Blog</span></a></li>
+                </ul>
+            </li>
+
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-cog"></i> My Blog Posts <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                    <li><a href="blog_template.html"><span>Show All</span></a></li>
+                    <li><a href="blog_template.html"><span>Show Most Recent</span></a></li>
+                    <li><a href="create-post.html"><span>Create New Post</span></a></li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-cog"></i> My Pages <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                    <li><a href="about-us-template.html"><span>About Us</span></a></li>
+                    <li><a href="my-profile.html"><span>My Profile</span></a></li>
+                    <li><a href="create-page.html"><span>Create Page</span></a></li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-cog"></i> My Media <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                    <!--
+                    <li><a href="about-us-template.html"><span>Show Images</span></a></li>
+                    -->
+                    <li><button type="button" class="btn btn-link show-images">Show All Images</button></li>
+                    <!--
+                    <li><code>btn btn-link</code></li>
+                    -->
+                    <li><button type="button" class="btn btn-link upload-image">Upload An Images</button></li>
+                    <!--
+                    <li><code>btn btn-link</code></li>
+                    -->
+                    <li><button type="button" class="btn btn-link delete-image">Delete An Image</button></li>
+                    <!--
+                    <li><code>btn btn-link</code></li>
+                    -->
+                </ul>
+            </li>
+            <!--
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-cog"></i> Settings <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                    <li><a href="sign-in.html"><span>Sign-in Page</span></a></li>
+                    <li><a href="register.html"><span>Sign-up Page</span></a></li>
+                    <li><a href="reset-password.html"><span>Forgot Password Page</span></a></li>
+                </ul>
+            </li>
+            -->
         </ul>
     </div>
 
@@ -186,15 +254,40 @@
 
         <ul id="dashboard-menu" class="nav nav-list">
 
-            <li class=" "><a href="index.html"><i class="icon-home"></i> <span>HOME</span></a></li>
+            <li class="active "><a href="index.html"><i class="icon-home"></i> <span>Home</span></a></li>
+
+            <!--
+            <li class=" "><a href="reports.html"><i class="icon-bar-chart"></i> <span>Reports</span></a></li>
+
+            <li class=" "><a href="components.html"><i class="icon-briefcase"></i> <span>UI Features</span></a></li>
+
+            <li class=" "><a href="pricing.html"><i class="icon-magic"></i> <span>Pricing</span></a></li>
+            -->
+
+            <li class=" "><a href="blog_template.html"><i class="icon-beaker"></i> <span>Blog</span></a></li>
+
+            <li class=" "><a href="media.html"><i class="icon-film"></i> <span>Media</span></a></li>
+
+            <!--
+            <li class=" "><a href="help.html"><i class="icon-question-sign"></i> <span>Help</span></a></li>
 
 
-            <li class=" "><a href="myPages.html"><i class="icon-bar-chart"></i> <span>My Pages</span></a></li>
+            <li class=" "><a href="faq.html"><i class="icon-book"></i> <span>Faq</span></a></li>
 
 
-            <li class=" "><a href="blog.html"><i class="icon-briefcase"></i> <span>My Blogs</span></a></li>
+            <li class=" "><a href="calendar.html"><i class="icon-calendar"></i> <span>Calendar</span></a></li>
 
-            <li class=" "><a href="myProfile.html"><i class="icon-briefcase"></i> <span>My Profile</span></a></li>
+            <li class=" "><a href="forms.html"><i class="icon-tasks"></i> <span>Forms</span></a></li>
+
+
+            <li class=" "><a href="tables.html"><i class="icon-table"></i> <span>Tables</span></a></li>
+
+
+            <li class=" theme-mobile-hack"><a href="mobile.html"><i class="icon-comment-alt"></i> <span>Mobile</span></a></li>
+
+            <li class=" "><a href="icons.html"><i class="icon-heart"></i> <span>Font Awesome</span></a></li>
+            -->
+
         </ul>
     </div>
 
@@ -202,161 +295,446 @@
         <div class="container-fluid">
             <div class="row-fluid">
 
+<div class="span8 main-content">
 
-
-<h2>Hardcore Bikers Blog</h2>
-
-<ul class="filter nav nav-pills">
-  <li class="active">
-    <a href="#all" data-filter=".blog-post">All</a>
-  </li>
-  <li><a href="#images" data-filter=".sampleFilterOnetrue">Updates</a></li>
-  <li><a href="#videos" data-filter=".sampleFilterTwotrue">News</a></li>
-</ul>
-
-<div id="blog-posts">
-    <div class="row-fluid blog-post sampleFilterOnefalse sampleFilterTwofalse">
-      <div class="span12">
-        <h4><strong><a href="#">Title of the post</a></strong></h4>
+    <div class="row-fluid">
         <div class="row-fluid">
-            <a href="#" class="thumbnail pull-left">
-                <img src="assets/images/442256_20337880.jpg" alt="">
-            </a>
-            <div class="post-summary">
-                <p>
-                  Lorem ipsum dolor sit amet, id nec conceptam conclusionemque. Et eam tation option. Utinam salutatus ex eum. Ne mea dicit tibique facilisi, ea mei omittam explicari conclusionemque, ad nobis propriae quaerendum sea.
-                </p>
-                <p>
-                    <a class="btn btn-mini" href="#">Read more</a>
-                    <a class="btn btn-mini" href="#">Edit</a>
-                    <a class="btn btn-mini" href="#">Delete</a>
-                </p>
+            <h2>My Blogs
+                <span class="info"></span>
+            </h2>
+            <ul class="item-summary">
+                <li>
+                    <div class="overview">
+                        <p class="main-detail">My Biking Passion</p>
+
+                        <p class="sub-detail"></p>
+
+                        <span class="label label-success">Active</span> <span class="label label-info">New</span>
+                    </div>
+                    <div class="info">
+                        <p>Trust fund photo letterpress, keytar raw skydiving denim grape keffiyeh etsy art base apple party ball before they.</p>
+                        <a class="btn btn-mini" href="#">Show Posts</a>
+                        <a class="btn btn-mini" href="#">Edit Blog Summary</a>
+                        <a class="btn btn-mini" href="#">Delete Blog</a>
+                    </div>
+                    <div class="clearfix"></div>
+                </li>
+
+                <li>
+                    <div class="overview">
+                        <p class="main-detail">Parenting an Autistic Child</p>
+                        <p class="sub-detail"></p>
+                        <span class="label label-success">Active</span>
+                    </div>
+                    <div class="info">
+                        <p>Trust fund photo letterpress, keytar raw skydiving denim grape keffiyeh etsy art base apple party ball before they.</p>
+                        <a class="btn btn-mini" href="#">Show Posts</a>
+                        <a class="btn btn-mini" href="#">Edit Blog Summary</a>
+                        <a class="btn btn-mini" href="#">Delete Blog</a>
+                    </div>
+                    <div class="clearfix"></div>
+                </li>
+
+                <li>
+                    <div class="overview">
+                        <p class="main-detail">Favorites Books & Movies</p>
+                        <p class="sub-detail"></p>
+                        <span class="label label-success">Active</span>
+                    </div>
+                    <div class="info">
+                        <p>Trust fund photo letterpress, keytar raw skydiving denim grape keffiyeh etsy art base apple party ball before they.</p>
+                        <a class="btn btn-mini" href="#">Show Posts</a>
+                        <a class="btn btn-mini" href="#">Edit Blog Summary</a>
+                        <a class="btn btn-mini" href="#">Delete Blog</a>
+                    </div>
+                    <div class="clearfix"></div>
+                </li>
+
+                <li>
+                    <div class="overview">
+                        <p class="main-detail">Hidden Truths</p>
+                        <p class="sub-detail"></p>
+                        <span class="label label-success">Active</span>
+                    </div>
+                    <div class="info">
+                        <p>Trust fund photo letterpress, keytar raw skydiving denim grape keffiyeh etsy art base apple party ball before they.</p>
+                        <a class="btn btn-mini" href="#">Show Posts</a>
+                        <a class="btn btn-mini" href="#">Edit Blog Summary</a>
+                        <a class="btn btn-mini" href="#">Delete Blog</a>
+                    </div>
+                    <div class="clearfix"></div>
+                </li>
+                <li class="more">
+                <a href="#">Show All</a>
+                </li>
+            </ul>
+        </div>
+
+        <!--
+        <div class="row-fluid">
+            <div id="three-summaries" class="row-fluid">
+                <div class="span5">
+                    <h2>Mailboxes</h2>
+                    <ul class="cards widget list">
+                        <li><i class="icon-envelope"></i> New<span class="pull-right label label-important">23</span></li>
+                        <li><i class="icon-share"></i> Follow Up<span class="pull-right label label-important">13</span></li>
+                        <li><i class="icon-star-empty"></i> Starred<span class="pull-right label label-important">73</span></li>
+                        <li><i class="icon-hdd"></i> All Messages<span class="pull-right label label-important">89</span></li>
+                        <li><i class="icon-bookmark-empty"></i> Archived<span class="pull-right label label-important">24</span></li>
+                        <li><i class="icon-thumbs-up"></i> Important<span class="pull-right label label-important">10</span></li>
+                        <li><i class="icon-envelope"></i> Personal<span class="pull-right label label-important">39</span></li>
+                    </ul>
+                </div>
+                <div class="span7">
+                    <h2>Upcoming Events</h2>
+                    <ul class="cards widget">
+
+
+
+                        <li>
+                            <button class="btn pull-right btn-mini">Open</button>
+                            <i class="pull-left muted icon-bar-chart"></i>
+                            <div>
+                                <p class="title"> Campaign Ends</p>
+                                <p class="info">Saturday, July 22nd 12:45PM</p>
+                            </div>
+                        </li>
+
+                        <li>
+                            <button class="btn pull-right btn-mini">Open</button>
+                            <i class="pull-left muted icon-group"></i>
+                            <div>
+                                <p class="title"> User Training</p>
+                                <p class="info">Saturday, July 22nd 12:45PM</p>
+                            </div>
+                        </li>
+
+                        <li>
+                            <button class="btn pull-right btn-mini">Open</button>
+                            <i class="pull-left muted icon-time"></i>
+                            <div>
+                                <p class="title"> Free Trial Ends</p>
+                                <p class="info">Saturday, July 22nd 12:45PM</p>
+                            </div>
+                        </li>
+
+                        <li>
+                            <button class="btn pull-right btn-mini">Open</button>
+                            <i class="pull-left muted icon-gift"></i>
+                            <div>
+                                <p class="title"> User Appreciation Day</p>
+                                <p class="info">Saturday, July 22nd 12:45PM</p>
+                            </div>
+                        </li>
+
+                        <li>
+                            <button class="btn pull-right btn-mini">Open</button>
+                            <i class="pull-left muted icon-plane"></i>
+                            <div>
+                                <p class="title"> Flight Training</p>
+                                <p class="info">Saturday, July 22nd 12:45PM</p>
+                            </div>
+                        </li>
+
+                    </ul>
+                </div>
             </div>
+            <h2>Inbox</h2>
+
+            <table class="table table-first-column-check table-hover">
+                <thead>
+                    <tr>
+                      <th class="span1"><i class="icon-star-empty"></i></th>
+                      <th class="span2">From</th>
+                      <th class="span9">Subject</th>
+                      <th class="span2">Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                      <td><a href="#"><i class="icon-star-empty"></i></a></td>
+                      <td><strong>John Doe</strong></td>
+                      <td><strong>Message body goes in here</strong> <span class="label label-success pull-right" style="margin-left: .5em;">Follow Up </span> <span class="label label-info pull-right">Work</span></td>
+                      <td><strong>11:23 PM</strong></td>
+                    </tr>
+                    <tr>
+                      <td><a href="#"><i class="icon-star-empty"></i></a></td>
+                      <td>John Doe</td>
+                      <td>Message body goes in here <span class="label label-success pull-right">Follow Up</span></td>
+                      <td>Sept4</td>
+                    </tr>
+                    <tr>
+                      <td><a href="#"><i class="icon-star"></i></a></td>
+                      <td><strong>John Doe</strong></td>
+                      <td><strong>Message body goes in here</strong> <span class="label label-important pull-right">Spam</span></td>
+                      <td><strong>Sept3</strong></td>
+                    </tr>
+                    <tr>
+                      <td><a href="#"><i class="icon-star"></i></a></td>
+                      <td><strong>John Doe</strong></td>
+                      <td> <strong>Message body goes in here</strong> <span class="label pull-right">Personal</span></td>
+                      <td><strong>Sept3</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h2>Top Users</h2>
+            <div class="well widget" style="display: none;">
+                <form class="form-inline" style="margin-bottom: 0px;">
+                    <input class="input-xlarge" placeholder="Search All Users..." type="text">
+                    <button class="btn" type="button"><i class="icon-search"></i> Go</button>
+                </form>
+            </div>
+            <table class="table table-first-column-check">
+              <thead>
+                <tr>
+                  <th><input type="checkbox"></th>
+                  <th>First</th>
+                  <th>Last</th>
+                  <th>Username</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><input type="checkbox"></td>
+                  <td>Mark</td>
+                  <td>Tompson</td>
+                  <td>the_mark7</td>
+                </tr>
+                <tr>
+                  <td><input type="checkbox"></td>
+                  <td>Ashley</td>
+                  <td>Jacobs</td>
+                  <td>ash11927</td>
+                </tr>
+                <tr>
+                  <td><input type="checkbox"></td>
+                  <td>Audrey</td>
+                  <td>Ann</td>
+                  <td>audann84</td>
+                </tr>
+                <tr>
+                  <td><input type="checkbox"></td>
+                  <td>John</td>
+                  <td>Robinson</td>
+                  <td>jr5527</td>
+                </tr>
+                <tr>
+                  <td><input type="checkbox"></td>
+                  <td>Aaron</td>
+                  <td>Butler</td>
+                  <td>aaron_butler</td>
+                </tr>
+                <tr>
+                  <td><input type="checkbox"></td>
+                  <td>Chris</td>
+                  <td>Albert</td>
+                  <td>cab79</td>
+                </tr>
+              </tbody>
+            </table>
         </div>
-        <div class="row-fluid details">
-            <i class="icon-user"></i> by <a href="#">Ashley</a>
-            | <i class="icon-calendar"></i> January 16th, 2013
+        -->
+    </div>
+</div>
+
+<div class="span4 sidebar">
+    <div class="widget">
+        <h2>Latest Posts</h2>
+        <ul class="cards">
+            <li>
+                <p class="title">Undiscovered Bike Trails in Northeast</p>
+                <!--
+                <div class="img">
+                    <img src="images/faces/1b.png">
+                    <div class="label label-info">Pro</div>
+                </div>
+                -->
+                <p class="info-text">Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid.</p>
+
+                <div class="stats">
+                    <p class="time">date posted</p>
+                    <span>27 <i class="icon-comment"></i></span>
+                    <span><button type="button" class="btn btn-link edit-post">Edit</button></span>
+                    <span><button type="button" class="btn btn-link delete-post">Delete</button></span>
+                    <!--
+                    <span>15 <i class="icon-pushpin"></i></span>
+                    <span>27 <i class="icon-comment"></i></span>
+                    <span>158 <i class="icon-eye-open"></i></span>
+                    -->
+                </div>
+
+            </li>
+            <li>
+                <p class="title">Essential Biking Safety Gear</p>
+                <!--
+                <div class="img">
+                    <img src="images/faces/2b.png">
+                    <div class="label label-warning">Free</div>
+                </div>
+                -->
+                <p class="info-text">Trust fund seitan letterpress, keytar raw denim keffiyeh etsy art party before they sold out master.</p>
+                <div class="stats">
+                    <p class="time">date posted</p>
+                    <span>27 <i class="icon-comment"></i></span>
+                    <span><button type="button" class="btn btn-link edit-post">Edit</button></span>
+                    <span><button type="button" class="btn btn-link delete-post">Delete</button></span>
+                    <!--
+                    <p class="time">29 minutes ago</p>
+                    <span>10 <i class="icon-pushpin"></i></span>
+                    <span>19 <i class="icon-comment"></i></span>
+                    <span>58 <i class="icon-eye-open"></i></span>
+                    -->
+                </div>
+            </li>
+            <li>
+                <p class="title">Connor Adams</p>
+                <!--
+                <div class="img">
+                    <img src="images/faces/1a.png">
+                    <div class="label label-info">Pro</div>
+                </div>
+                -->
+                <p class="info-text">Anderson tofu before they sold out mcsweeney's organic lomo retro fanny pack.</p>
+                <div class="stats">
+                    <p class="time">date posted</p>
+                    <span>27 <i class="icon-comment"></i></span>
+                    <span><button type="button" class="btn btn-link edit-post">Edit</button></span>
+                    <span><button type="button" class="btn btn-link delete-post">Delete</button></span>
+                    <!--
+                    <p class="time">Yesterday</p>
+                    <span>25 <i class="icon-pushpin"></i></span>
+                    <span>39 <i class="icon-comment"></i></span>
+                    <span>252 <i class="icon-eye-open"></i></span>
+                    -->
+                </div>
+            </li>
+            <li class="more">
+                <a href="#">Show All</a>
+            </li>
+        </ul>
+    </div>
+    <!--
+    <div class="widget">
+        <ul id="myTab" class="nav nav-tabs three-tabs fancy">
+          <li class="active"><a href="#home" data-toggle="tab">Orders</a></li>
+          <li><a href="#promotions" data-toggle="tab">Promotions</a></li>
+          <li class="dropdown">
+            <a href="#deals" data-toggle="tab">Deals</a>
+          </li>
+        </ul>
+        <div class="tab-content">
+          <div class="tab-pane fade in active" id="home">
+          <ul class="cards">
+            <li>
+                <p class="pull-right text-error">$20,500</p>
+                <a href="#"><p class="title">Care Hospital</p></a>
+                <p class="info">Sales Rating: 86%</p>
+            </li>
+            <li>
+                <p class="pull-right text-info">$9,400</p>
+                <a href="#"><p class="title">New Automotive</p></a>
+                <p class="info">Sales Rating: 72%</p>
+            </li>
+            <li>
+                <p class="pull-right text-success">$60,200</p>
+                <a href="#"><p class="title">Money Financial</p></a>
+                <p class="info">Sales Rating: 92%</p>
+            </li>
+            <li>
+                <p class="pull-right text-important">$8,640</p>
+                <a href="#"><p class="title">Custom Insurance</p></a>
+                <p class="info">Sales Rating: 84%</p>
+            </li>
+            <li>
+                <p class="pull-right text-warning">$36,700</p>
+                <a href="#"><p class="title">New Technology</p></a>
+                <p class="info">Sales Rating: 66%</p>
+            </li>
+        </ul>
+          </div>
+          <div class="tab-pane fade" id="promotions">
+
+            <ul class="cards">
+                <li style="padding: 0em 1em;"><h3>This is something interesting.</h3></li>
+                <li>Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid. Exercitation labore velit, blog sartorial PBR leggings next level wes anderson artisan.</li>
+                <li>Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid. Exercitation labore velit, blog sartorial PBR leggings next level wes anderson artisan.</li>
+                <li>Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid. Exercitation labore velit, blog sartorial PBR leggings next level wes anderson artisan.</li>
+            </ul>
+          </div>
+          <div class="tab-pane fade" id="deals">
+            <ul class="cards">
+                <li><p>Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid oranges apples banana.</p><a class="btn btn-mini" href="#">Show me</a></li>
+                <li><p>Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid oranges apples banana.</p><a class="btn btn-mini" href="#">Show me</a></li>
+                <li><p>Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid oranges apples banana.</p><a class="btn btn-mini" href="#">Show me</a></li>
+                <li><p>Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid oranges apples banana.</p><a class="btn btn-mini" href="#">Show me</a></li>
+            </ul>
+          </div>
         </div>
-      </div>
     </div>
 
+    <div class="widget">
+        <ul class="nav nav-tabs two-tabs fancy">
+          <li class="active"><a href="#upgrade" data-toggle="tab">Upgrade Account</a></li>
+          <li><a href="#why-upgrade" data-toggle="tab">Why Upgrade?</a></li>
+        </ul>
+        <div class="tab-content">
+          <div class="tab-pane fade in active" id="upgrade">
+            <ul class="unstyled cards not-bottom">
 
-    <div class="row-fluid blog-post sampleFilterOnefalse sampleFilterTwofalse">
-      <div class="span12">
-        <h4><strong><a href="#">Title of the post</a></strong></h4>
-        <div class="row-fluid">
-            <a href="#" class="thumbnail pull-left">
-                <img src="assets/images/472381_10949156.jpg" alt="">
-            </a>
-            <div class="post-summary">
-                <p>
-                  Lorem ipsum dolor sit amet, id nec conceptam conclusionemque. Et eam tation option. Utinam salutatus ex eum. Ne mea dicit tibique facilisi, ea mei omittam explicari conclusionemque, ad nobis propriae quaerendum sea.
-                </p>
-                <p>
-                    <a class="btn btn-mini" href="#">Read more</a>
-                    <a class="btn btn-mini" href="#">Edit</a>
-                    <a class="btn btn-mini" href="#">Delete</a>
-                </p>
-            </div>
+
+
+                <li>
+                <i class="icon-leaf pull-left text-info"></i>
+                    <p class="title"><strong>More Features</strong></p>
+                    <p class="info small">This is the kind of thing you really need.</p>
+                </li>
+
+                <li>
+                <i class="icon-group pull-left text-info"></i>
+                    <p class="title"><strong>Unlimited Users</strong></p>
+                    <p class="info small">This is the kind of thing you really need.</p>
+                </li>
+
+                <li>
+                <i class="icon-trophy pull-left text-info"></i>
+                    <p class="title"><strong>Custom Database</strong></p>
+                    <p class="info small">This is the kind of thing you really need.</p>
+                </li>
+
+                <li>
+                <i class="icon-book pull-left text-info"></i>
+                    <p class="title"><strong>Enhanced Reporting</strong></p>
+                    <p class="info small">This is the kind of thing you really need.</p>
+                </li>
+
+            </ul>
+            <button class="btn btn-primary pull-right">Upgrade Now</button>
+          </div>
+          <div class="tab-pane fade" id="why-upgrade">
+            <h3>This is something interesting.</h3>
+            <p>Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid. Exercitation labore velit, blog sartorial PBR leggings next level wes anderson artisan.</p>
+            <button class="btn btn-primary pull-right">Upgrade Now</button>
+          </div>
         </div>
-        <div class="row-fluid details">
-            <i class="icon-user"></i> by <a href="#">Ashley</a>
-            | <i class="icon-calendar"></i> January 16th, 2013
-        </div>
-      </div>
     </div>
-
-
-    <div class="row-fluid blog-post sampleFilterOnetrue sampleFilterTwofalse">
-      <div class="span12">
-        <h4><strong><a href="#">Title of the post</a></strong></h4>
-        <div class="row-fluid">
-            <a href="#" class="thumbnail pull-left">
-                <img src="assets/images/503993_62595320.jpg" alt="">
-            </a>
-            <div class="post-summary">
-                <p>
-                  Lorem ipsum dolor sit amet, id nec conceptam conclusionemque. Et eam tation option. Utinam salutatus ex eum. Ne mea dicit tibique facilisi, ea mei omittam explicari conclusionemque, ad nobis propriae quaerendum sea.
-                </p>
-                <p>
-                    <a class="btn btn-mini" href="#">Read more</a>
-                    <a class="btn btn-mini" href="#">Edit</a>
-                    <a class="btn btn-mini" href="#">Delete</a>
-                </p>
-            </div>
-        </div>
-        <div class="row-fluid details">
-            <i class="icon-user"></i> by <a href="#">Ashley</a>
-            | <i class="icon-calendar"></i> January 16th, 2013
-        </div>
-      </div>
-    </div>
-
-
-    <div class="row-fluid blog-post sampleFilterOnefalse sampleFilterTwofalse">
-      <div class="span12">
-        <h4><strong><a href="#">Title of the post</a></strong></h4>
-        <div class="row-fluid">
-            <a href="#" class="thumbnail pull-left">
-                <img src="assets/images/625998_12886207.jpg" alt="">
-            </a>
-            <div class="post-summary">
-                <p>
-                  Lorem ipsum dolor sit amet, id nec conceptam conclusionemque. Et eam tation option. Utinam salutatus ex eum. Ne mea dicit tibique facilisi, ea mei omittam explicari conclusionemque, ad nobis propriae quaerendum sea.
-                </p>
-                <p>
-                    <a class="btn btn-mini" href="#">Read more</a>
-                    <a class="btn btn-mini" href="#">Edit</a>
-                    <a class="btn btn-mini" href="#">Delete</a>
-                </p>
-            </div>
-        </div>
-        <div class="row-fluid details">
-            <i class="icon-user"></i> by <a href="#">Ashley</a>
-            | <i class="icon-calendar"></i> January 16th, 2013
-        </div>
-      </div>
-    </div>
-
-
-    <div class="row-fluid blog-post sampleFilterOnetrue sampleFilterTwotrue">
-      <div class="span12">
-        <h4><strong><a href="#">Title of the post</a></strong></h4>
-        <div class="row-fluid">
-            <a href="#" class="thumbnail pull-left">
-                <img src="assets/images/737034_24905666.jpg" alt="">
-            </a>
-            <div class="post-summary">
-                <p>
-                  Lorem ipsum dolor sit amet, id nec conceptam conclusionemque. Et eam tation option. Utinam salutatus ex eum. Ne mea dicit tibique facilisi, ea mei omittam explicari conclusionemque, ad nobis propriae quaerendum sea.
-                </p>
-                <p>
-                    <a class="btn btn-mini" href="#">Read more</a>
-                    <a class="btn btn-mini" href="#">Edit</a>
-                    <a class="btn btn-mini" href="#">Delete</a>
-                </p>
-            </div>
-        </div>
-        <div class="row-fluid details">
-            <i class="icon-user"></i> by <a href="#">Ashley</a>
-            | <i class="icon-calendar"></i> January 16th, 2013
-        </div>
-      </div>
-    </div>
+    -->
 </div>
 
 
                 <footer>
                     <hr>
                     <p class="pull-right">Design by <a href="http://www.portnine.com" target="_blank">Hopper</a></p>
-                    <p>&copy; 2013 <a href="#">All About Hopper, Inc.</a></p>
+                    <p>&copy; 2013 <a href="#">Hopper, Incorporated</a></p>
                 </footer>
 
             </div>
         </div>
     </div>
 
-    <!-- Bootstrap -->
+    <!--
+    <script src="lib/bootstrap/js/bootstrap.js"></script>
+    -->
     <script src="js/bootstrap.js"></script>
     <script type="text/javascript">
         $("[rel=tooltip]").tooltip();
@@ -364,9 +742,6 @@
             $('.demo-cancel-click').click(function(){return false;});
         });
     </script>
-
-    <!-- jQuery -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js" integrity="sha256-ivk71nXhz9nsyFDoYoGf2sbjrR9ddh+XDkCcfZxjvcM=" crossorigin="anonymous"></script>
 
   </body>
 </html>
