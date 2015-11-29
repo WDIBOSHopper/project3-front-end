@@ -19,6 +19,7 @@ body {
     background-size: cover;
     -o-background-size: cover;
     padding-top: 50px;
+    background-position: center 37%;
 }
 
 .headline {
