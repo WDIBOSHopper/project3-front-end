@@ -257,31 +257,34 @@
 </script>
 
 <script id="wholeDashboard" type="text/x-handlebars-template">
-{{> navbarPartial}}
-<div class="span8 main-content">
-{{> createPostPartial}}
-    <div class="row-fluid">
-        <h2>My Blogs
-            <span class="info"></span>
-        </h2>
 
-        <!-- Code will be removed when fix the missing line dividers between blog items -->
-        <ul class="item-summary">
-            {{> blogListsPartial}}
-        </ul>
-    </div>  
-</div>
-<div class="span4 sidebar">
-    <div class="widget">
-        <h2>Latest Posts</h2>
-        <ul class="cards">
-            {{> putBlogPostsPartial}}
-            <li class="more">
-                <a href="#">Show All</a>
-            </li>
-        </ul>
-    </div>
-</div>            
+<div class="container-fluid">
+        {{> navbarPartial}}
+        <div class="span8 main-content">
+        {{> createPostPartial}}
+            <div class="row-fluid">
+                <h2>My Blogs
+                    <span class="info"></span>
+                </h2>
+
+                <!-- Code will be removed when fix the missing line dividers between blog items -->
+                <ul class="item-summary">
+                    {{> blogListsPartial}}
+                </ul>
+            </div>  
+        </div>
+        <div class="span4 sidebar">
+            <div class="widget">
+                <h2>Latest Posts</h2>
+                <ul class="cards">
+                    {{> putBlogPostsPartial}}
+                    <li class="more">
+                        <a href="#">Show All</a>
+                    </li>
+                </ul>
+            </div>
+        </div>  
+</div>                    
 
 </script>
 
