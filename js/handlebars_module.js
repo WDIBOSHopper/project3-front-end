@@ -2,13 +2,35 @@ var data = {posts: [ {blogTitle: "Lauren's Blog", title: "My first post", conten
 
 var blogData = {blogs: [ {blogName: "My Biking Passion", name: "My first blog", details: "I created a blog!", date: "2015-10-15"}, {blogName: "My Biking Passion", name: "Essential Biking Safety Gear", details: "I created a blog!", date: "2015-10-15"},{blogName: "Rachel's blog", name: "My third blog", details: "I created a thing!", date: "2015-10-15"}]};
 
+var navData = {username: "Rachel", url: "/Rachel/dogs", blogs: [ {blogName: "My Biking Passion", name: "My first blog", details: "I created a blog!", date: "2015-10-15"}, {blogName: "My Biking Passion", name: "Essential Biking Safety Gear", details: "I created a blog!", date: "2015-10-15"},{blogName: "Rachel's blog", name: "My third blog", details: "I created a thing!", date: "2015-10-15"}]};
+
 
 var bhHandlebars = {
   displayHomepage: function(data){
     var blogPostsTemplate = Handlebars.compile($('#blogPosts').html());
     var newHTML = blogPostsTemplate(data);
     $("#putBlogPosts").html(newHTML);
+  },
+
+  navbar: function(){
+    
+    return(navbarTemplate);
+  },
+
+  displayDashboard: function(navData){
+    var navbarTemplate = Handlebars.compile($("#dashboardNavbar").html());
+    Handlebars.registerPartial('navbarPartial', navbarTemplate);
+    var createPostTemplate = Handlebars.compile($("#dashboardCreatePost").html());
+    Handlebars.registerPartial('createPostPartial', createPostTemplate);
+    var blogListsTemplate = Handlebars.compile($('#blogLists').html());
+    Handlebars.registerPartial('blogListsPartial', blogListsTemplate);
+    var putBlogPostsTemplate = Handlebars.compile($('#putBlogPosts').html());
+    Handlebars.registerPartial('putBlogPostsPartial', putBlogPostsTemplate);
+    var wholeDashboardTemplate = Handlebars.compile($("#wholeDashboard").html());
+    newHTML= wholeDashboardTemplate(navData);
+    $('body').html(newHTML);
   }
+
 };
 
 var blogHandlebars = {
@@ -21,6 +43,7 @@ var blogHandlebars = {
 
 bhHandlebars.displayHomepage(data);
 
-blogHandlebars.displayDashboard(blogData);
+bhHandlebars.displayDashboard(navData);
+// blogHandlebars.displayDashboard(blogData);
 
 

@@ -15,7 +15,14 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
+    <!-- Index css -->
+
     <link href="css/one-page-wonder.css" rel="stylesheet">
+    <!-- Dashboard css -->
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="css/theme.css">
+
+    <!-- Other css -->
     <link href="css/style.css" rel="stylesheet">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -162,6 +169,146 @@
         <hr class="featurette-divider">
   {{/each}}
 </script>
+
+<!-- Dashboard templates -->
+<!-- Dashboard navbar -->
+<script id="dashboardNavbar" type="text/x-handlebars-template">
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a id="registerLink" class="navbar-brand" href="#">Welcome, {{username}}!</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="#">Logout</a>
+                    </li>
+                    <li>
+                        <a href="#dashboard">Dashboard</a>
+                    </li>
+                    <li>
+                        <a href="#">My Blog</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+</script>
+
+
+<script id="dashboardCreatePost" type="text/x-handlebars-template">
+
+    <div class= "row-fluid">
+    <h2>Post to blog {{url}}<h2>
+    <form>
+        <div class="form-group">
+            <label for="InputName">Post Title</label>
+                    <div class="input-group">
+                        <input type="text" class="form-control" name="InputName" id="InputTitle" placeholder="Title" required>
+                    </div>
+            <label for="InputName">Blog post</label>
+                    <div class="input-group">
+                        <textarea name="Blog post" class="form-control"></textarea>
+                    </div>
+                    <div class="input-group">
+                        <input type="submit" name="submit" id="submit" value="Post" class="btn btn-info pull-right">
+                    </div>
+        </div>
+    </form>
+    </div>
+
+</script>
+
+<!-- Dashboard (Blogs) template -->
+<script id="blogLists" type="text/x-handlebars-template">
+{{#each blogs}}
+    <li>
+        <div class="overview">
+            <p class="main-detail">{{name}}</p>
+
+            <p class="sub-detail"></p>
+
+            <span class="label label-success">Active</span> <span class="label label-info">New</span>
+        </div>
+        <div class="info">
+            <p>{{details}}</p>
+            <span><button type="button" class="btn btn-link show-posts">Show Posts</button></span>
+            <span><button type="button" class="btn btn-link edit-blog">Edit</button></span>
+            <span><button type="button" class="btn btn-link delete-blog">Delete</button></span>
+            <!--
+            <a class="btn btn-mini" href="#">Show Posts</a>
+            <a class="btn btn-mini" href="#">Edit Blog Summary</a>
+            <a class="btn btn-mini" href="#">Delete Blog</a>
+            -->
+        </div>
+        <div class="clearfix"></div>
+    </li> 
+ {{/each}}
+</script>
+
+<script id="wholeDashboard" type="text/x-handlebars-template">
+{{> navbarPartial}}
+<div class="span8 main-content">
+{{> createPostPartial}}
+    <div class="row-fluid">
+        <h2>My Blogs
+            <span class="info"></span>
+        </h2>
+
+        <!-- Code will be removed when fix the missing line dividers between blog items -->
+        <ul class="item-summary">
+            {{> blogListsPartial}}
+        </ul>
+    </div>  
+</div>
+<div class="span4 sidebar">
+    <div class="widget">
+        <h2>Latest Posts</h2>
+        <ul class="cards">
+            {{> putBlogPostsPartial}}
+            <li class="more">
+                <a href="#">Show All</a>
+            </li>
+        </ul>
+    </div>
+</div>            
+
+</script>
+
+<!-- Dashboard (Posts) template -->
+
+<script id="blogPosts" type="text/x-handlebars-template">
+{{#each posts}}
+    <li>
+        <p class="title">{{title}}</p>
+        
+        <p class="info-text">{{content}}</p>
+
+        <div class="stats">
+            <p class="time">{{date}}</p>
+            <span>27 <i class="icon-comment"></i></span>
+            <span><button type="button" class="btn btn-link edit-post">Edit</button></span>
+            <span><button type="button" class="btn btn-link delete-post">Delete</button></span>
+            <!--
+            <span>15 <i class="icon-pushpin"></i></span>
+            <span>27 <i class="icon-comment"></i></span>
+            <span>158 <i class="icon-eye-open"></i></span>
+            -->
+        </div>
+    </li>
+ {{/each}}
+</script>
+
 
 <!-- jQuery -->
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js" integrity="sha256-ivk71nXhz9nsyFDoYoGf2sbjrR9ddh+XDkCcfZxjvcM=" crossorigin="anonymous"></script>
