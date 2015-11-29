@@ -1,3 +1,4 @@
+
 #registration-form {
     display: none;
     position: absolute;
@@ -6,5 +7,12 @@
     width: 50%;
     padding: 3% 3% 3% 3%;
     margin-left: 20%;
+}
+
+.dropdown-menu {
+  padding: 15px; padding-bottom: 0px;
+}
+.dropdown-menu .btn {
+  margin-bottom: 15px;
 }
 
