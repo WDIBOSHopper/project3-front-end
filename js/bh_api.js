@@ -32,7 +32,10 @@ var bhApi = {
       // url: 'http://httpbin.org/post',
       url: this.bh + '/signup',
       data: credentials,
-      dataType: 'json'
+      dataType: 'json',
+      xhrFields: {
+        withCredentials: true
+      }
     }, callback);
   },
 
@@ -43,6 +46,9 @@ var bhApi = {
       url: this.bh + '/login',
       data: credentials,
       dataType: 'json',
+      xhrFields: {
+        withCredentials: true
+      }
     }, callback);
   },
 

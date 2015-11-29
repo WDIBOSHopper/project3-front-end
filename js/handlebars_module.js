@@ -14,7 +14,6 @@ var bhHandlebars = {
 
   navbar: function(){
     
-    return(navbarTemplate);
   },
 
   displayDashboard: function(navData){
@@ -43,7 +42,7 @@ var blogHandlebars = {
 
 bhHandlebars.displayHomepage(data);
 
-bhHandlebars.displayDashboard(navData);
+// bhHandlebars.displayDashboard(navData);
 // blogHandlebars.displayDashboard(blogData);
 
 
