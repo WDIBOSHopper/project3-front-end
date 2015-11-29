@@ -41,8 +41,7 @@ var bhApi = {
       method: 'POST',
       // url: 'http://httpbin.org/post',
       url: this.bh + '/login',
-      contentType: 'application/json; charset=utf-8',
-      data: JSON.stringify(credentials),
+      data: credentials,
       dataType: 'json'
     }, callback);
   },
@@ -57,15 +56,32 @@ var bhApi = {
 };
 
 
-$('#registration-form').on('submit', function(e){
-  e.preventDefault();
-  var data = this.serialize();
-  bhApi.register(data, function (err, data){    
-    if (err){
-      console.error(err);
-      return false;
-    } 
+$(document).ready(function(){
+
+  $('#login-form').on('submit', function(e){
+    e.preventDefault();
+    var data = $(this).serialize();
     console.log(data);
-    return false;
+    bhApi.login(data, function (err, data){    
+      if (err){
+        console.error(err);
+        return false;
+      } 
+      console.log(data);
+      return false;
+    });
+  }),
+
+  $('#registration-form').on('submit', function(e){
+    e.preventDefault();
+    var data = $(this).serialize();
+    bhApi.register(data, function (err, data){    
+      if (err){
+        console.error(err);
+        return false;
+      } 
+      console.log(data);
+      return false;
+    });
   });
-});  
+});
