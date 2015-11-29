@@ -43,9 +43,6 @@ var bhApi = {
       url: this.bh + '/login',
       data: credentials,
       dataType: 'json',
-      headers: { 
-        credentials: true
-      }
     }, callback);
   },
 
