@@ -1,4 +1,4 @@
 $('#registerLink').click(function() {
-  $('#registration-form').show();
+  $('#registration-div').show();
 });
 

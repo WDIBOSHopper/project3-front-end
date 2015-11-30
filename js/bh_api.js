@@ -85,10 +85,16 @@ $(document).ready(function(){
     bhApi.register(data, function (err, data){    
       if (err){
         console.error(err);
-        return false;
-      } 
-      console.log(data);
-      return false;
+        $('#errorAlert').show();
+        setTimeout(function(){
+          $('#errorAlert').hide();
+        }, 3000);
+      } else {
+      $('#successAlert').show();
+       setTimeout(function(){
+          $('#registration-div').hide();
+        }, 3000);
+      }
     });
   });
 });

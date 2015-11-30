@@ -1,5 +1,5 @@
 
-#registration-form {
+#registration-div {
     display: none;
     position: absolute;
     top: 15%;
@@ -7,6 +7,14 @@
     width: 50%;
     padding: 3% 3% 3% 3%;
     margin-left: 20%;
+}
+
+#successAlert {
+ display: none; 
+}
+
+#errorAlert {
+  display: none;
 }
 
 .dropdown-menu {
