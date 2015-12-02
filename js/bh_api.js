@@ -83,6 +83,7 @@ $(document).ready(function(){
         return false;
       }
       console.log(data);
+      bhHandlebars.displayDashboard(data);
       return false;
     });
   }),
