@@ -166,6 +166,9 @@
   {{/each}}
 </script>
 
+
+<!--  {username: un , userId: id, pages: [_id: , title: , content: , url: ] post: [_id: , title: , entry: , date: , page: owner: ] -->
+
 <!-- Dashboard templates -->
 <!-- Dashboard navbar -->
 <script id="dashboardNavbar" type="text/x-handlebars-template">
@@ -201,11 +204,11 @@
     </nav>
 </script>
 
-
+<!--  {username: un , userId: id, pages: [_id: , title: , content: , url: ] post: [_id: , title: , entry: , date: , page: owner: ] -->
 <script id="dashboardCreatePost" type="text/x-handlebars-template">
 
     <div class= "row-fluid">
-    <h2>Post to blog {{url}}<h2>
+    <h2>Post to blog {{username}}/{{pages[0].url}}<h2>
     <form>
         <div class="form-group">
             <label for="InputName">Post Title</label>
@@ -225,24 +228,23 @@
 
 </script>
 
+<!--  {username: un , userId: id, pages: [_id: , title: , content: , url: ] post: [_id: , title: , entry: , date: , page: owner: ] -->
 <!-- Dashboard (Blogs) template -->
 <script id="blogLists" type="text/x-handlebars-template">
-{{#each blogs}}
+{{#each pages}}
     <li>
         <div class="overview">
-            <p class="main-detail">{{name}}</p>
+            <p class="main-detail">{{title}}</p>
 
-            <p class="sub-detail"></p>
+            <p class="sub-detail">{{url}}</p>
 
             <span class="label label-success">Active</span> <span class="label label-info">New</span>
         </div>
         <div class="info">
-            <p>{{details}}</p>
-            <span><button type="button" class="btn btn-link show-posts">Show Posts</button></span>
-            <span><button type="button" class="btn btn-link edit-blog">Edit</button></span>
-            <span><button type="button" class="btn btn-link delete-blog">Delete</button></span>
+            <p>{{content}}</p>
+            <span><button type="button" class="btn btn-link edit-blog" pageId = '{{_id}}'>Edit</button></span>
+            <span><button type="button" class="btn btn-link delete-blog" pageId = '{{_id}}'>Delete</button></span>
             <!--
-            <a class="btn btn-mini" href="#">Show Posts</a>
             <a class="btn btn-mini" href="#">Edit Blog Summary</a>
             <a class="btn btn-mini" href="#">Delete Blog</a>
             -->
@@ -252,6 +254,8 @@
  {{/each}}
 </script>
 
+
+<!--  {username: un , userId: id, pages: [_id: , title: , content: , url: ] post: [_id: , title: , entry: , date: , page: owner: ] -->
 <script id="wholeDashboard" type="text/x-handlebars-template">
 
 <div class="container-fluid">
