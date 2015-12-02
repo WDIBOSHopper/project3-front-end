@@ -11,9 +11,6 @@ var signinData = {
 
 
 
-
-
-
 var bhApi = {
 
   bh: 'http://localhost:3000',
@@ -39,7 +36,7 @@ var bhApi = {
     }, callback);
   },
 
-   login: function (credentials, callback) {
+  login: function (credentials, callback) {
     this.ajax({
       method: 'POST',
       // url: 'http://httpbin.org/post',
@@ -49,7 +46,14 @@ var bhApi = {
       xhrFields: {
         withCredentials: true
       }
-    }, callback);
+    }, function() {
+        $.ajaxSetup({
+            xhrFields : {
+                withCredentials : true
+            }
+        });
+        callback.apply(this, arguments);
+    });
   },
 
   logout: function(callback) {
@@ -57,7 +61,7 @@ var bhApi = {
       method: 'DELETE',
       url: this.bh + '/logout/',
     }, callback);
-  },
+  }
 
 };
 
@@ -73,10 +77,11 @@ $(document).ready(function(){
         console.error(err);
         return false;
       } 
+      console.log("you have logged in");
       console.log(data);
       return false;
     });
-  }),
+  });
 
   $('#registration-form').on('submit', function(e){
     e.preventDefault();
@@ -95,6 +100,15 @@ $(document).ready(function(){
           $('#registration-div').hide();
         }, 3000);
       }
+    });
+  });
+
+  $('#logout').on('click', function(){
+    bhApi.logout(function(err, data){
+      if (err){console.error}
+        else {
+          console.log("You have logged out");
+        }
     });
   });
 });
