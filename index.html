@@ -78,10 +78,10 @@
     <!-- Full Width Image Header -->
     <header class="header-image">
         <div class="headline">
-        
+
                 <h1>Blog Hop</h1>
                 <h2>Create your blog as quick as a bunny!</h2>
-            
+
         </div>
     </header>
 
@@ -141,7 +141,7 @@
                 <input type="submit" name="submit" id="submit" value="Submit" class="btn btn-info pull-right">
             </div>
         </form>
-               
+
          <div class="col-lg-5 col-md-push-1">
             <div class="col-md-12">
                 <div id='successAlert' class="alert alert-success">
@@ -157,12 +157,12 @@
 <!-- Index template -->
 <script id="blogPosts" type="text/x-handlebars-template">
  {{#each posts}}
- <div class="featurette" id="about">
+ <div class="featurette" id="about" postId = '{{_id}}'>
             <img class="featurette-image img-circle img-responsive pull-right" src="http://placehold.it/500x500">
-            <h2 class="featurette-heading">{{blogTitle}}
+            <h2 class="featurette-heading">{{title}}
                 <span class="text-muted">{{title}}</span>
             </h2>
-            <p class="lead">{{content}}</p>
+            <p class="lead">{{entry}}</p>
         </div>
 
         <hr class="featurette-divider">
@@ -251,7 +251,7 @@
             -->
         </div>
         <div class="clearfix"></div>
-    </li> 
+    </li>
  {{/each}}
 </script>
 
@@ -270,7 +270,7 @@
                 <ul class="item-summary">
                     {{> blogListsPartial}}
                 </ul>
-            </div>  
+            </div>
         </div>
         <div class="span4 sidebar">
             <div class="widget">
@@ -282,8 +282,8 @@
                     </li>
                 </ul>
             </div>
-        </div>  
-</div>                    
+        </div>
+</div>
 
 </script>
 
@@ -293,7 +293,7 @@
 {{#each posts}}
     <li>
         <p class="title">{{title}}</p>
-        
+
         <p class="info-text">{{content}}</p>
 
         <div class="stats">
@@ -319,7 +319,7 @@
 <script src="./js/handlebars-v4.0.4.js"></script>
 <!-- jQuery -->
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js" integrity="sha256-ivk71nXhz9nsyFDoYoGf2sbjrR9ddh+XDkCcfZxjvcM=" crossorigin="anonymous"></script>
-    
+
 
 <!-- ​Bootstrap -->
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>

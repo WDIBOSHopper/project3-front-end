@@ -65,7 +65,6 @@ var bhApi = {
 
   // retrieve all posts
   getPosts: function (callback) {
-    debugger;
     this.ajax({
       method: 'GET',
       url: this.bh + '/post',
@@ -123,10 +122,10 @@ $(document).ready(function(){
   });
   // initial rendering of posts onto homepage
   bhApi.getPosts(function (err, data) {
-  debugger;
   if (err){
     console.error(err);
     } else {
+
     console.log('successful return of get Post request', data);
     };
   });
