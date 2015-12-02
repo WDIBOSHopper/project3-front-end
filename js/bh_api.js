@@ -59,6 +59,15 @@ var bhApi = {
     }, callback);
   },
 
+  // retrieve all posts
+  getPosts: function (callback) {
+    this.ajax({
+      method: 'GET',
+      url: this.bh + '/post',
+      dataType: 'json',
+    }, callback);
+  },
+
 };
 
 
@@ -68,11 +77,11 @@ $(document).ready(function(){
     e.preventDefault();
     var data = $(this).serialize();
     console.log(data);
-    bhApi.login(data, function (err, data){    
+    bhApi.login(data, function (err, data){
       if (err){
         console.error(err);
         return false;
-      } 
+      }
       console.log(data);
       return false;
     });
@@ -82,7 +91,7 @@ $(document).ready(function(){
     e.preventDefault();
     var data = $(this).serialize();
     console.log(data);
-    bhApi.register(data, function (err, data){    
+    bhApi.register(data, function (err, data){
       if (err){
         console.error(err);
         $('#errorAlert').show();
@@ -97,4 +106,15 @@ $(document).ready(function(){
       }
     });
   });
+
+  // initial rendering of posts onto homepage
+  bhApi.getPosts(function (err, data) {
+  if (err){
+    console.error(err);
+    } else {
+    console.log('successful return of get Post request', data);
+    };
+  });
+  // end of get posts for homepage rendering
+
 });
