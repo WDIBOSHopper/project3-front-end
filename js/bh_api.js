@@ -61,7 +61,7 @@ var bhApi = {
       method: 'DELETE',
       url: this.bh + '/logout/',
     }, callback);
-  },
+  }
 
   // retrieve all posts
   getPosts: function (callback) {
@@ -84,7 +84,6 @@ $(document).ready(function(){
       if (err){
         console.error(err);
         return false;
-
       } 
       console.log("you have logged in");
       console.log(data);
@@ -131,7 +130,13 @@ $(document).ready(function(){
     };
   });
   // end of get posts for homepage rendering
+
+  $('#logout').on('click', function(){
+    bhApi.logout(function(err, data){
+      if (err){console.error}
+        else {
+          console.log("You have logged out");
+        }
+    });
+  });
 });
-
-
-
