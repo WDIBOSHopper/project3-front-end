@@ -112,10 +112,11 @@ $(document).ready(function(){
   if (err){
     console.error(err);
     } else {
-
     console.log('successful return of get Post request', data);
+    bhHandlebars.displayHomepage(data);
     };
   });
   // end of get posts for homepage rendering
+
 
 });

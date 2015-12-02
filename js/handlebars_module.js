@@ -40,8 +40,6 @@ var blogHandlebars = {
   }
 };
 
-bhHandlebars.displayHomepage(data);
-
 // bhHandlebars.displayDashboard(navData);
 // blogHandlebars.displayDashboard(blogData);
 
