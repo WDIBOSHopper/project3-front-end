@@ -88,6 +88,7 @@ $(document).ready(function(){
       } 
       console.log("you have logged in");
       console.log(data);
+      bhHandlebars.displayDashboard(data);
       return false;
     });
   });
