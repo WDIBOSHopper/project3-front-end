@@ -28,6 +28,9 @@ var fakePostUpdateData = {
 
  };
 
+ // fake data ends HERE
+var userData = {userName: null, userPage: null, userId: null};
+
 var bhHelpers = {
   wrap: function (root, formData) {
     var wrapper = {};
@@ -222,11 +225,14 @@ $(document).ready(function(){
         }, 3000);
         $('#successAlert').hide();
         console.log(data.user._id);
+        userData.userName = data.user.userName;
+        userData.userId = data.user._id;
         console.log(data);
         bhApi.createPage({title: "My Blog", content: "A blog for me.", url: data.user.userName,  owner: data.user._id}, function(err, data){
             if (err){
             console.error(err);
             } else {
+              userData.userPage = data.page._id;
             console.log('You created a post. FOR REALS.', data);
             }
         });
