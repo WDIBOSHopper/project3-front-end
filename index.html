@@ -207,6 +207,31 @@
     </nav>
 </script>
 
+<!--  Create Page Module -->
+
+<script id="dashboardCreatePage" type="text/x-handlebars-template">
+
+    <div class= "row-fluid">
+    <h2>Create a Page {{username}}<h2>
+    <form id="create-page">
+        <div class="form-group">
+            <label for="InputName">Page Title</label>
+                    <div class="input-group">
+                        <input type="text" class="form-control" name="InputPageName" id="InputTitle" placeholder="Title" required>
+                    </div>
+            <label for="InputPageName">Page Description</label>
+                    <div class="input-group">
+                        <textarea name="Page Description" class="form-control"></textarea>
+                    </div>
+                    <div class="input-group">
+                        <input type="submit" name="submit" id="submit" value="Create Page" class="btn btn-info pull-right">
+                    </div>
+        </div>
+    </form>
+    </div>
+
+</script>
+
 <!--  {username: un , userId: id, pages: [_id: , title: , content: , url: ] post: [_id: , title: , entry: , date: , page: owner: ] -->
 <script id="dashboardCreatePost" type="text/x-handlebars-template">
 
