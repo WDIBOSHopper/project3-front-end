@@ -225,13 +225,13 @@
     <h2>Post to blog {{username}}/{{pages.0.url}}<h2>
     <form id="create-post">
         <div class="form-group">
-            <label for="InputName">Post Title</label>
+            <label for="title">Post Title</label>
                     <div class="input-group">
-                        <input type="text" class="form-control" name="InputName" id="InputTitle" placeholder="Title" required>
+                        <input type="text" class="form-control" name="title" id="InputTitle" placeholder="Title" required>
                     </div>
-            <label for="InputName">Blog post</label>
+            <label for="entry">Blog post</label>
                     <div class="input-group">
-                        <textarea name="Blog post" class="form-control"></textarea>
+                    <input type="text" name="entry" class="form-control">
                     </div>
                     <div class="input-group">
                         <input type="submit" name="submit" id="submit" value="Post" class="btn btn-info pull-right">
