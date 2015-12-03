@@ -157,12 +157,12 @@
 <!-- Index template -->
 <script id="blogPosts" type="text/x-handlebars-template">
  {{#each posts}}
- <div class="featurette" id="about" postId = '{{_id}}'>
+ <div class="featurette index-posts-id" id="about" postId = '{{_id}}'>
             <img class="featurette-image img-circle img-responsive pull-right" src="http://placehold.it/500x500">
-            <h2 class="featurette-heading">{{title}}
-                <span class="text-muted">{{date}}</span>
+            <h2 class="featurette-heading index-posts-title">{{title}}
+                <span class="text-muted index-posts-date">{{date}}</span>
             </h2>
-            <p class="lead">{{entry}}</p>
+            <p class="lead index-posts-entry">{{entry}}</p>
         </div>
 
         <hr class="featurette-divider">
@@ -212,7 +212,7 @@
 
     <div class= "row-fluid">
     <h2>Post to blog {{username}}/{{pages.0.url}}<h2>
-    <form>
+    <form id="create-post">
         <div class="form-group">
             <label for="InputName">Post Title</label>
                     <div class="input-group">
@@ -236,15 +236,15 @@
 <script id="blogLists" type="text/x-handlebars-template">
 {{#each pages}}
     <li>
-        <div class="overview">
-            <p class="main-detail">{{title}}</p>
+        <div class="overview pages-list">
+            <p class="main-detail pages-list-title">{{title}}</p>
 
-            <p class="sub-detail">{{url}}</p>
+            <p class="sub-detail pages-list-url">{{url}}</p>
 
             <span class="label label-success">Active</span> <span class="label label-info">New</span>
         </div>
         <div class="info">
-            <p>{{content}}</p>
+            <p class="pages-list-content">{{content}}</p>
             <span><button type="button" class="btn btn-link edit-blog" pageId = '{{_id}}'>Edit</button></span>
             <span><button type="button" class="btn btn-link delete-blog" pageId = '{{_id}}'>Delete</button></span>
             <!--
@@ -297,12 +297,12 @@
 <script id="blogPosts" type="text/x-handlebars-template">
 {{#each posts}}
     <li>
-        <p class="title">{{title}}</p>
+        <p class="title new-post-title">{{title}}</p>
 
-        <p class="info-text">{{content}}</p>
+        <p class="info-text new-post-content">{{content}}</p>
 
         <div class="stats">
-           <p class="time">{{date}}</p>
+           <p class="date">{{date}}</p>
             <span>27 <i class="icon-comment"></i></span>
             <span><button type="button" class="btn btn-link edit-post">Edit</button></span>
             <span><button type="button" class="btn btn-link delete-post">Delete</button></span>
