@@ -17,6 +17,11 @@ var fakePostData = {
 
  };
 
+ var fakePostUpdateData = {
+  title: "UPDATE DATA test",
+  entry: "We updated a post from the front end!"
+ };
+
 var fakePostId = "5660683bcfb42add8d9ed4ab";
 var fakePostDeleteId = "5660672fcfb42add8d9ed4a8";
 
@@ -197,6 +202,21 @@ var dashboardHandlers = function(){
       };
       bhApi.createPost(postData, callback);
     });
+
+    $('.edit-post').on('click', function(e) {
+     e.preventDefault();
+     var postId = $(e.target).data('postid');
+     console.log("postid" + postId);
+     bhApi.updatePost(fakePostUpdateData, postId, function (err, data){
+      if (err){
+        console.error(err);
+      } else {
+        console.log("UPDATED");
+         }
+      });
+    });
+
+
     $('.delete-post').on('click', function(e) {
      e.preventDefault();
      var postId = $(e.target).data('postid');
