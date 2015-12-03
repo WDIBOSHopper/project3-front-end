@@ -28,6 +28,25 @@ var fakePostUpdateData = {
 
  };
 
+var bhHelpers = {
+  wrap: function (root, formData) {
+    var wrapper = {};
+    wrapper[root] = formData;
+    return wrapper;
+  },
+
+  form2object: function(form) {
+    var data = {};
+    $(form).find('input').each(function(index, element) {
+      var type = $(this).attr('type');
+      if ($(this).attr('name') && type !== 'submit' && type !== 'hidden') {
+        data[$(this).attr('name')] = $(this).val();
+      }
+    });
+    return data;
+  }
+};
+
 
 var bhApi = {
 
@@ -144,8 +163,27 @@ var bhApi = {
   }
 
 
-};   
+};
 
+
+var dashboardHandlers = function(){
+  $(document).ready(function(){
+    $('#create-post').on('submit', function(e) {
+      console.log('you have entered the handler');
+
+      e.preventDefault();
+      var postData = bhHelpers.form2object(this);
+      var callback = function(err, data) {
+        if (err){console.error}
+        else {
+          console.log("You have created a Post!");
+        }
+      };
+      bhApi.createPost(postData, callback);
+    });
+
+  });
+};
 
 $(document).ready(function(){
 
@@ -157,10 +195,11 @@ $(document).ready(function(){
       if (err){
         console.error(err);
         return false;
-      } 
+      }
       console.log("you have logged in");
       console.log(data);
       bhHandlebars.displayDashboard(data);
+      dashboardHandlers();
       return false;
     });
   });
