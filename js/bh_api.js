@@ -18,7 +18,7 @@ var fakePostData = {
  };
 
 var fakePostId = "5660683bcfb42add8d9ed4ab";
-var fakePostDeleteId = "5660572cd7e2bb7882989d99";
+var fakePostDeleteId = "5660672fcfb42add8d9ed4a8";
 
 var fakePostUpdateData = {
   page: '56605e2b5309dfd1878b0842',
@@ -222,7 +222,7 @@ $(document).ready(function(){
     };
   });
 
-  bhApi.deletePost(fakePostId, function(err, data){
+  bhApi.deletePost(fakePostDeleteId, function(err, data){
     if (err){
     console.error(err);
     } else {
