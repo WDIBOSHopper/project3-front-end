@@ -17,6 +17,17 @@ var fakePostData = {
 
  };
 
+var fakePostId = "5660683bcfb42add8d9ed4ab";
+
+var fakePostUpdateData = {
+  page: '56605e2b5309dfd1878b0842',
+  owner: '5660572cd7e2bb7882989d99',
+  title: "UPDATEtest",
+  entry: "We updated a post from the front end!"
+
+ };
+
+
 var bhApi = {
 
   bh: 'http://localhost:3000',
@@ -89,8 +100,38 @@ var bhApi = {
         data: JSON.stringify(data),
         dataType: 'json',
       }, callback);
+  },
+
+  updatePost: function(data, postId, callback) {
+   this.ajax({
+        method: 'PATCH',
+        // url: 'http://httpbin.org/post',
+        url: this.bh + '/post/' + postId,
+        xhrFields: {
+          withCredentials: true
+        },
+        contentType: "application/json; charset=utf-8",
+        data: JSON.stringify(data),
+        dataType: 'json',
+      }, callback);
+  },
+
+  createPage: function(data, callback) {
+    this.ajax({
+      method: 'POST',
+      // url: 'http://httpbin.org/post',
+      url: this.bh + '/page',
+      xhrFields: {
+          withCredentials: true
+        },
+        contentType: "application/json; charset=utf-8",
+        data: JSON.stringify(data),
+        dataType: 'json',
+      }, callback);
   }
-};
+
+
+};   
 
 
 $(document).ready(function(){
@@ -125,8 +166,18 @@ $(document).ready(function(){
       } else {
       $('#successAlert').show();
        setTimeout(function(){
-          $('#registration-div').hide();
+        $('#registration-div').hide();
         }, 3000);
+        $('#successAlert').hide();
+        console.log(data.user._id);
+        
+        bhApi.createPage({title: "My Blog", content: "A blog for me.", owner: data.user._id}, function(err, data){
+            if (err){
+            console.error(err);
+            } else {
+            console.log('You created a post. FOR REALS.', data);
+            }
+        });
       }
     });
   });
@@ -153,14 +204,16 @@ $(document).ready(function(){
 
   $('#createPostForm').on('submit', function(e){
     e.preventDefault();
+    var newPost = {
 
+    };
   });
 
-  bhApi.createPost(fakePostData, function(err, data){
+  bhApi.updatePost(fakePostUpdateData, fakePostId, function(err, data){
     if (err){
     console.error(err);
     } else {
-    console.log('You created a post. FOR REALS.', data);
+    console.log('You updated a post. FOR REALS.', data);
     }
   });
 });
