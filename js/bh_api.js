@@ -18,6 +18,7 @@ var fakePostData = {
  };
 
 var fakePostId = "5660683bcfb42add8d9ed4ab";
+var fakePostDeleteId = "5660572cd7e2bb7882989d99";
 
 var fakePostUpdateData = {
   page: '56605e2b5309dfd1878b0842',
@@ -116,6 +117,18 @@ var bhApi = {
       }, callback);
   },
 
+  deletePost: function(postId, callback) {
+    this.ajax({
+      method: 'DELETE',
+      // url: 'http://httpbin.org/post',
+      url: this.bh + '/post/' + postId,
+      dataType: 'json',
+      xhrFields: {
+        withCredentials: true
+      }
+    }, callback);
+  },
+
   createPage: function(data, callback) {
     this.ajax({
       method: 'POST',
@@ -209,11 +222,11 @@ $(document).ready(function(){
     };
   });
 
-  bhApi.updatePost(fakePostUpdateData, fakePostId, function(err, data){
+  bhApi.deletePost(fakePostId, function(err, data){
     if (err){
     console.error(err);
     } else {
-    console.log('You updated a post. FOR REALS.', data);
+    console.log('You deleted a post. FOR REALS.', data);
     }
   });
 });
