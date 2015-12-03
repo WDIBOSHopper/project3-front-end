@@ -273,7 +273,7 @@
 <script id="blogPostsDashboard" type="text/x-handlebars-template">
 
 {{#each posts}}
- <div class="featurette index-posts-id" id="about" postId = '{{_id}}'>
+ <div class="featurette index-posts-id"  >
 
             <h2 class="featurette-heading index-posts-title">{{title}}
                 <span class="text-muted index-posts-date">{{date}}</span>
@@ -281,8 +281,8 @@
             <p class="lead index-posts-entry">{{entry}}</p>
         </div>
         <div>
-        <span><button type="button" class="btn btn-link edit-post">Edit</button></span>
-        <span><button type="button" class="btn btn-link delete-post">Delete</button></span>
+        <span><button type="button" class="btn btn-link edit-post" data-postId='{{_id}}'>Edit</button></span>
+        <span><button type="button" class="btn btn-link delete-post" data-postId='{{_id}}'>Delete</button></span>
         </div>
 
         <hr class="featurette-divider">
@@ -304,6 +304,7 @@
 </script>
 
 <!--  {username: un , userId: id, pages: [_id: , title: , content: , url: ] post: [_id: , title: , entry: , date: , page: owner: ] -->
+<!--  {{> navbarPartial}} -->
 <script id="wholeDashboard" type="text/x-handlebars-template">
 
 <div class="container-fluid">

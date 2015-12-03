@@ -197,7 +197,18 @@ var dashboardHandlers = function(){
       };
       bhApi.createPost(postData, callback);
     });
-
+    $('.delete-post').on('click', function(e) {
+     e.preventDefault();
+     var postId = $(e.target).data('postid');
+     console.log("postid" + postId);
+     bhApi.deletePost(postId, function (err, data){
+      if (err){
+        console.error(err);
+      } else {
+        console.log("DELTETED");
+         }
+      });
+    });
   });
 };
 
