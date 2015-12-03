@@ -48,7 +48,6 @@ var bhApi = {
       // url: 'http://httpbin.org/post',
       url: this.bh + '/login',
       data: credentials,
-      dataType: 'json',
       xhrFields: {
         withCredentials: true
       }
