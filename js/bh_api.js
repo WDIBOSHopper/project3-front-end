@@ -13,7 +13,7 @@ var signinData = {
 
 var bhApi = {
 
-  bh: 'http://localhost:3000',
+  bh: 'https://fierce-sea-5348.herokuapp.com',
 
   ajax: function(config, cb) {
     $.ajax(config).done(function(data, textStatus, jqxhr) {
@@ -61,7 +61,7 @@ var bhApi = {
       method: 'DELETE',
       url: this.bh + '/logout/',
     }, callback);
-  }
+  },
 
   // retrieve all posts
   getPosts: function (callback) {
