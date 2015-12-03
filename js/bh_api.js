@@ -183,8 +183,8 @@ $(document).ready(function(){
         }, 3000);
         $('#successAlert').hide();
         console.log(data.user._id);
-        
-        bhApi.createPage({title: "My Blog", content: "A blog for me.", owner: data.user._id}, function(err, data){
+        console.log(data);
+        bhApi.createPage({title: "My Blog", content: "A blog for me.", url: data.user.userName,  owner: data.user._id}, function(err, data){
             if (err){
             console.error(err);
             } else {
