@@ -190,14 +190,14 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <li>
-                        <a href="#">Logout</a>
+                     <li>
+                        <a id="logout" href="#">LogOUT</a>
                     </li>
                     <li>
                         <a href="#dashboard">Dashboard</a>
                     </li>
                     <li>
-                        <a href="#">My Blog</a>
+                        <a id="myBlog" href="#">My Blog</a>
                     </li>
                 </ul>
             </div>
@@ -264,14 +264,15 @@
 <div class="container-fluid">
         {{> navbarPartial}}
         <div class="span8 main-content">
+        <div id='createAndEdit'>
         {{> createPostPartial}}
+        </div>
             <div class="row-fluid">
-                <h2>My Blogs
+                <h2>My Posts
                     <span class="info"></span>
                 </h2>
 
-                <!-- Code will be removed when fix the missing line dividers between blog items -->
-                <ul class="item-summary">
+                <ul id='blogListGoesHere'class="item-summary">
                     {{> blogListsPartial}}
                 </ul>
             </div>
