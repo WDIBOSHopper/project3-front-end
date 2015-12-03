@@ -21,7 +21,7 @@
     <link href="css/one-page-wonder.css" rel="stylesheet">
     <!-- Dashboard css -->
     <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
-    <link rel="stylesheet" type="text/css" href="css/theme.css">
+    <!-- <link rel="stylesheet" type="text/css" href="css/theme.css"> -->
 
     <!-- Other css -->
     <link href="css/style.css" rel="stylesheet">
@@ -244,7 +244,7 @@
 
 <!--  {username: un , userId: id, pages: [_id: , title: , content: , url: ] post: [_id: , title: , entry: , date: , page: owner: ] -->
 <!-- Dashboard (Blogs) template -->
-<script id="blogLists" type="text/x-handlebars-template">
+<script id="pageList" type="text/x-handlebars-template">
 {{#each pages}}
     <li>
         <div class="overview pages-list">
@@ -268,6 +268,40 @@
  {{/each}}
 </script>
 
+<!-- Dashboard (Posts) template -->
+
+<script id="blogPostsDashboard" type="text/x-handlebars-template">
+
+{{#each posts}}
+ <div class="featurette index-posts-id" id="about" postId = '{{_id}}'>
+
+            <h2 class="featurette-heading index-posts-title">{{title}}
+                <span class="text-muted index-posts-date">{{date}}</span>
+            </h2>
+            <p class="lead index-posts-entry">{{entry}}</p>
+        </div>
+        <div>
+        <span><button type="button" class="btn btn-link edit-post">Edit</button></span>
+        <span><button type="button" class="btn btn-link delete-post">Delete</button></span>
+        </div>
+
+        <hr class="featurette-divider">
+  {{/each}}
+
+ {{#each posts}}
+  <li>
+ <p class="title new-post-title">{{title}}</p>
+<p class="info-text new-post-content">{{entry}}</p>
+
+<div class="stats">
+<p class="date">{{date}}</p>
+
+  <span><button type="button" class="btn btn-link edit-post">Edit</button></span>
+ <span><button type="button" class="btn btn-link delete-post">Delete</button></span>
+  </div>
+   </li>
+ {{/each}}
+</script>
 
 <!--  {username: un , userId: id, pages: [_id: , title: , content: , url: ] post: [_id: , title: , entry: , date: , page: owner: ] -->
 <script id="wholeDashboard" type="text/x-handlebars-template">
@@ -287,7 +321,7 @@
                 </h2>
 
                 <ul id='blogListGoesHere'class="item-summary">
-                    {{> blogListsPartial}}
+                    {{> pageListPartial}}
                 </ul>
             </div>
         </div>
@@ -295,7 +329,7 @@
             <div class="widget">
                 <h2>Latest Posts</h2>
                 <ul class="cards">
-                    {{> putBlogPostsPartial}}
+                    {{> blogPostDashboard}}
                     <li class="more">
                         <a href="#">Show All</a>
                     </li>
@@ -304,32 +338,6 @@
         </div>
 </div>
 
-</script>
-
-
-
-<!-- Dashboard (Posts) template -->
-
-<script id="blogPosts" type="text/x-handlebars-template">
-{{#each posts}}
-    <li>
-        <p class="title new-post-title">{{title}}</p>
-
-        <p class="info-text new-post-content">{{content}}</p>
-
-        <div class="stats">
-           <p class="date">{{date}}</p>
-            <span>27 <i class="icon-comment"></i></span>
-            <span><button type="button" class="btn btn-link edit-post">Edit</button></span>
-            <span><button type="button" class="btn btn-link delete-post">Delete</button></span>
-            <!--
-            <span>15 <i class="icon-pushpin"></i></span>
-            <span>27 <i class="icon-comment"></i></span>
-            <span>158 <i class="icon-eye-open"></i></span>
-            -->
-        </div>
-    </li>
- {{/each}}
 </script>
 
 <!-- jQuery -->

@@ -17,20 +17,24 @@ var bhHandlebars = {
   },
 
   displayDashboard: function(navData){
+
+
     var navbarTemplate = Handlebars.compile($("#dashboardNavbar").html());
     Handlebars.registerPartial('navbarPartial', navbarTemplate);
+
+    var createPageTemplate = Handlebars.compile($("#dashboardCreatePage").html());
+    Handlebars.registerPartial('createPagePartial', createPageTemplate);
 
     var createPostTemplate = Handlebars.compile($("#dashboardCreatePost").html());
     Handlebars.registerPartial('createPostPartial', createPostTemplate);
 
-    var blogListsTemplate = Handlebars.compile($('#blogLists').html());
-    Handlebars.registerPartial('blogListsPartial', blogListsTemplate);
+    var pageListTemplate = Handlebars.compile($('#pageList').html());
+    Handlebars.registerPartial('pageListPartial', pageListTemplate);
+    console.log("compiling template");
 
-    var putBlogPostsTemplate = Handlebars.compile($('#putBlogPosts').html());
-    Handlebars.registerPartial('putBlogPostsPartial', putBlogPostsTemplate);
+    var blogPostsDashboardTemplate = Handlebars.compile($('#blogPostsDashboard').html());
+    Handlebars.registerPartial('blogPostDashboard', blogPostsDashboardTemplate);
 
-    var createPageTemplate = Handlebars.compile($("#dashboardCreatePage").html());
-    Handlebars.registerPartial('createPagePartial', createPageTemplate);
 
     var wholeDashboardTemplate = Handlebars.compile($("#wholeDashboard").html());
     newHTML= wholeDashboardTemplate(navData);

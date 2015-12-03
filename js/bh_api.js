@@ -102,6 +102,17 @@ var bhApi = {
     }, callback);
   },
 
+  dashboard: function(callback){
+    this.ajax({
+      method: 'GET',
+      url: this.bh + '/dashboard',
+      xhrFields: {
+        withCredentials: true
+      },
+      dataType: 'json',
+    }, callback);
+  },
+
   // retrieve all posts
   getPosts: function (callback) {
     this.ajax({
@@ -201,12 +212,19 @@ $(document).ready(function(){
         console.error(err);
         return false;
       }
-      console.log("you have logged in");
-      console.log(data);
-      userData.userName = data.userName;
-      userData.userId = data._id;
-      bhHandlebars.displayDashboard(data);
-      dashboardHandlers();
+        console.log("you have logged in");
+        bhApi.dashboard(function(err, data){
+          if(err){console.error}
+          else{
+            console.log("this data is passed to handlebars");
+            console.log(data);
+            userData.userName = data.userName;
+            userData.userId = data._id;
+            bhHandlebars.displayDashboard(data);
+            dashboardHandlers();
+          }
+      });
+
       return false;
     });
   });
