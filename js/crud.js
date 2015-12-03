@@ -16,7 +16,7 @@ createPost: function(data, callback) {
       method: 'POST',
       // url: 'http://httpbin.org/post',
       url: this.bh + '/post',
-      data: credentials,
+      data: data,
       dataType: 'json',
       xhrFields: {
         withCredentials: true
@@ -25,12 +25,13 @@ createPost: function(data, callback) {
 }
 
 
+
 updatePage: function(data, callback) {
  this.ajax({
       method: 'PATCH',
       // url: 'http://httpbin.org/post',
       url: this.bh + '/page',
-      data: credentials,
+      data: data('name', 'value'),
       dataType: 'json',
       xhrFields: {
         withCredentials: true

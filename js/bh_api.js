@@ -9,11 +9,17 @@ var signinData = {
   password: 123
 };
 
+var fakePostData = {
+  page: '56602fec01b6499172ab66df',
+  userId: '565fb1799e26c4a662c93ad5',
+  title: "test",
+  entry: "We posted from the front end!"
 
+ };
 
 var bhApi = {
 
-  bh: 'https://fierce-sea-5348.herokuapp.com',
+  bh: 'http://localhost:3000',
 
   ajax: function(config, cb) {
     $.ajax(config).done(function(data, textStatus, jqxhr) {
@@ -70,6 +76,20 @@ var bhApi = {
       url: this.bh + '/post',
       dataType: 'json',
     }, callback);
+  },
+
+  createPost: function(data, callback) {
+   this.ajax({
+        method: 'POST',
+        // url: 'http://httpbin.org/post',
+        url: this.bh + '/post',
+        xhrFields: {
+          withCredentials: true
+        },
+        contentType: "application/json; charset=utf-8",
+        data: JSON.stringify(data),
+        dataType: 'json',
+      }, callback);
   }
 };
 
@@ -139,4 +159,12 @@ $(document).ready(function(){
         }
     });
   });
+
+  // bhApi.createPost(fakePostData, function(err, data){
+  //   if (err){
+  //   console.error(err);
+  //   } else {
+  //   console.log('You created a post. FOR REALS.', data);
+  //   }
+  // });
 });
