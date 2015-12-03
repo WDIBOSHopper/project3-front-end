@@ -19,15 +19,24 @@ var bhHandlebars = {
   displayDashboard: function(navData){
     var navbarTemplate = Handlebars.compile($("#dashboardNavbar").html());
     Handlebars.registerPartial('navbarPartial', navbarTemplate);
+
     var createPostTemplate = Handlebars.compile($("#dashboardCreatePost").html());
     Handlebars.registerPartial('createPostPartial', createPostTemplate);
+
     var blogListsTemplate = Handlebars.compile($('#blogLists').html());
     Handlebars.registerPartial('blogListsPartial', blogListsTemplate);
+
     var putBlogPostsTemplate = Handlebars.compile($('#putBlogPosts').html());
     Handlebars.registerPartial('putBlogPostsPartial', putBlogPostsTemplate);
+
+    var createPageTemplate = Handlebars.compile($("#dashboardCreatePage").html());
+    Handlebars.registerPartial('createPagePartial', createPageTemplate);
+
     var wholeDashboardTemplate = Handlebars.compile($("#wholeDashboard").html());
     newHTML= wholeDashboardTemplate(navData);
     $('body').html(newHTML);
+
+
   }
 
 };
