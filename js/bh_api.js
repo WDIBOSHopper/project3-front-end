@@ -10,8 +10,8 @@ var signinData = {
 };
 
 var fakePostData = {
-  page: '56602fec01b6499172ab66df',
-  userId: '565fb1799e26c4a662c93ad5',
+  page: '56605e2b5309dfd1878b0842',
+  owner: '5660572cd7e2bb7882989d99',
   title: "test",
   entry: "We posted from the front end!"
 
@@ -132,6 +132,7 @@ $(document).ready(function(){
   });
 
   $('#logout').on('click', function(){
+    e.preventDefault();
     bhApi.logout(function(err, data){
       if (err){console.error}
         else {
@@ -150,20 +151,16 @@ $(document).ready(function(){
   });
   // end of get posts for homepage rendering
 
-  $('#logout').on('click', function(){
-    bhApi.logout(function(err, data){
-      if (err){console.error}
-        else {
-          console.log("You have logged out");
-        }
-    });
+  $('#createPostForm').on('submit', function(e){
+    e.preventDefault();
+
   });
 
-  // bhApi.createPost(fakePostData, function(err, data){
-  //   if (err){
-  //   console.error(err);
-  //   } else {
-  //   console.log('You created a post. FOR REALS.', data);
-  //   }
-  // });
+  bhApi.createPost(fakePostData, function(err, data){
+    if (err){
+    console.error(err);
+    } else {
+    console.log('You created a post. FOR REALS.', data);
+    }
+  });
 });
