@@ -203,11 +203,15 @@
         <div class="form-group">
             <label for="InputName">Page Title</label>
                     <div class="input-group">
-                        <input type="text" class="form-control" name="InputPageName" id="InputTitle" placeholder="Title" required>
+                        <input type="text" class="form-control" name="title" id="InputTitle" placeholder="Title" required>
                     </div>
             <label for="InputPageName">Page Description</label>
                     <div class="input-group">
-                        <textarea name="Page Description" class="form-control"></textarea>
+                        <input type="text" name="content" class="form-control">
+                    </div>
+            <label for="InputURL">Create a New URL</label>
+                    <div class="input-group">
+                        <input type="text" name="url" value="{{username}}/" class="form-control">
                     </div>
                     <div class="input-group">
                         <input type="submit" name="submit" id="submit" value="Create Page" class="btn btn-info pull-right">
@@ -256,8 +260,8 @@
         </div>
         <div class="info">
             <p class="pages-list-content">{{content}}</p>
-            <span><button type="button" class="btn btn-link edit-blog" pageId = '{{_id}}'>Edit</button></span>
-            <span><button type="button" class="btn btn-link delete-blog" pageId = '{{_id}}'>Delete</button></span>
+            <span><button type="button" class="btn btn-link edit-page" data-pageId = '{{_id}}'>Edit</button></span>
+            <span><button type="button" class="btn btn-link delete-page" data-pageId = '{{_id}}'>Delete</button></span>
             <!--
             <a class="btn btn-mini" href="#">Edit Blog Summary</a>
             <a class="btn btn-mini" href="#">Delete Blog</a>

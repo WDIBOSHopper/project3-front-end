@@ -229,6 +229,22 @@ var dashboardHandlers = function(){
          }
       });
     });
+
+    $('#create-page').on('submit', function(e) {
+      console.log('you have entered the handler');
+
+      e.preventDefault();
+      var pageData = bhHelpers.form2object(this);
+      pageData.owner = userData.userId;
+      console.log(pageData);
+      var callback = function(err, data) {
+        if (err){console.error}
+        else {
+          console.log("You have created a Page!");
+        }
+      };
+      bhApi.createPage(pageData, callback);
+    });
   });
 };
 
