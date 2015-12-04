@@ -314,6 +314,9 @@
 <div class="container-fluid">
         {{> navbarPartial}}
         <div class="span8 main-content">
+        <h2>Edit Post</h2>
+        <div id="putEditPostHere">
+        </div>
         <div id='createAndEditPost'>
         {{> createPostPartial}}
         </div>
@@ -342,6 +345,31 @@
             </div>
         </div>
 </div>
+<-- scriptception -->
+<script id="dashboardEditPost" type="text/x-handlebars-template">
+
+    <div class= "row-fluid">
+    <h2>Edit post<h2>
+    <form id="create-post">
+    {{title}}  {{entry}}
+        <div class="form-group">
+            <label for="title">Post Title</label>
+                    <div class="input-group">
+                        <input type="text" class="form-control" name="title" id="InputTitle" placeholder="Title" value="{{title}}">
+                    </div>
+            <label for="entry">Blog post</label>
+                    <div class="input-group">
+                    <input type="text" name="entry" class="form-control" value='{{entry}}'>
+                    </div>
+                    <div class="input-group">
+                        <input type="submit" name="submit" id="submit" value="Post" class="btn btn-info pull-right">
+                    </div>
+        </div>
+    </form>
+    </div>
+
+</script>
+
 
 </script>
 

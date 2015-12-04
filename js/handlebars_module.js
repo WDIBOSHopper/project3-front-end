@@ -17,20 +17,22 @@ var bhHandlebars = {
   },
 
   editPost: function(data){
+    console.log(data);
+    var editData = data;
     var editPostTemplate = Handlebars.compile($("#dashboardEditPost").html());
-    var newHTML=editPostTemplate(data);
-    $('#createAndEditPost').html(newHTML);
+    var newHTML = editPostTemplate(editData);
+    $('#putEditPostHere').html(newHTML);
   },
 
   displayDashboard: function(navData){
-
 
     var navbarTemplate = Handlebars.compile($("#dashboardNavbar").html());
     Handlebars.registerPartial('navbarPartial', navbarTemplate);
 
     var createPageTemplate = Handlebars.compile($("#dashboardCreatePage").html());
     Handlebars.registerPartial('createPagePartial', createPageTemplate);
-
+    console.log("This is where it ACUTALLY FINDS IT");
+    console.log($("#dashboardCreatePost").html());
     var createPostTemplate = Handlebars.compile($("#dashboardCreatePost").html());
     Handlebars.registerPartial('createPostPartial', createPostTemplate);
 

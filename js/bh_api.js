@@ -233,7 +233,10 @@ var dashboardHandlers = function(){
         console.error(err);
       } else {
         console.log(data);
-         }
+        bhHandlebars.editPost(data); 
+        
+        //put click handler here(ish)
+       }
       });
     });
   });
