@@ -31,7 +31,7 @@ var bhHelpers = {
         postHandler();
       });
       }
-    }); 
+    });
   },
 
   refreshPages: function(){
@@ -45,7 +45,7 @@ var bhHelpers = {
         //page handlers go here
       });
       }
-    }); 
+    });
   }
 
 };
@@ -53,7 +53,7 @@ var bhHelpers = {
 
 var bhApi = {
 
-  bh: 'http://localhost:3000',
+  bh: 'https://lit-brook-2992.herokuapp.com/',
 
   ajax: function(config, cb) {
     $.ajax(config).done(function(data, textStatus, jqxhr) {
@@ -219,13 +219,13 @@ var postHandler = function(){
         console.error(err);
       } else {
         console.log(data);
-        bhHandlebars.editPost(data); 
+        bhHandlebars.editPost(data);
         $(document).ready(function(){
           $('#edit-post').on('click', function(e){
               e.preventDefault();
               var postData = bhHelpers.form2object(this);
               var postId = $(e.target).data('postid');
-          
+
               var callback = function(err, data) {
                 if (err){
                   console.log("Flagrant system error.");
@@ -275,7 +275,7 @@ var dashboardHandlers = function(){
     });
 
 
-    
+
 
     $('#create-page').on('submit', function(e) {
       console.log('you have entered the handler');
@@ -298,7 +298,7 @@ var dashboardHandlers = function(){
       bhApi.createPage(pageData, callback);
     });
 
-    
+
   });
 };
 
