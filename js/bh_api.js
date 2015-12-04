@@ -181,19 +181,6 @@ var dashboardHandlers = function(){
       bhApi.createPost(postData, callback);
     });
 
-    // $('.edit-post').on('click', function(e) {
-    //  e.preventDefault();
-    //  var postId = $(e.target).data('postid');
-    //  console.log("postid" + postId);
-    //  bhApi.updatePost(, postId, function (err, data){
-    //   if (err){
-    //     console.error(err);
-    //   } else {
-    //     console.log("UPDATED");
-    //      }
-    //   });
-    // });
-
 
     $('.delete-post').on('click', function(e) {
      e.preventDefault();
@@ -234,8 +221,25 @@ var dashboardHandlers = function(){
       } else {
         console.log(data);
         bhHandlebars.editPost(data); 
-        
-        //put click handler here(ish)
+        $(document).ready(function(){
+          console.log("About to set a handler");
+          $('#edit-post').on('click', function(e){
+              console.log("setting a handler");
+              e.preventDefault();
+              var postData = bhHelpers.form2object(this);
+              var postId = $(e.target).data('postid');
+              console.log(postData);
+              var callback = function(err, data) {
+                if (err){
+                  console.log("Flagrant system error.");
+                  console.error}
+                else {
+                  console.log("You updated a Post!");
+                }
+              };
+              bhApi.updatePost(postData, postId, callback);
+           });
+        });
        }
       });
     });

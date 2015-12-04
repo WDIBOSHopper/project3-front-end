@@ -46,7 +46,7 @@ var bhHandlebars = {
 
     var wholeDashboardTemplate = Handlebars.compile($("#wholeDashboard").html());
     newHTML= wholeDashboardTemplate(navData);
-    $('body').html(newHTML);
+    $('#everythingExceptTemplates').html(newHTML);
 
 
   }

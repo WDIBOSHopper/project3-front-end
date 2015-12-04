@@ -29,6 +29,7 @@
 </head>
 
 <body>
+<div id="everythingExceptTemplates"
     <!-- Navigation -->
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="container">
@@ -104,6 +105,7 @@
         </footer>
 
     </div>
+</div>
     <!-- Reistration form -->
 <div class="container">
     <div class="row" id="registration-div" >
@@ -139,6 +141,7 @@
         </div>
     </div>
 </div>
+
 <!-- Handlebars Templates -->
 <!-- Index template -->
 <script id="blogPosts" type="text/x-handlebars-template">
@@ -345,13 +348,16 @@
             </div>
         </div>
 </div>
-<-- scriptception -->
+
+
+</script>
+
 <script id="dashboardEditPost" type="text/x-handlebars-template">
 
     <div class= "row-fluid">
     <h2>Edit post<h2>
-    <form id="create-post">
-    {{title}}  {{entry}}
+    <form id="edit-post">
+        <h3>Editing {{title}} </h3>
         <div class="form-group">
             <label for="title">Post Title</label>
                     <div class="input-group">
@@ -362,7 +368,7 @@
                     <input type="text" name="entry" class="form-control" value='{{entry}}'>
                     </div>
                     <div class="input-group">
-                        <input type="submit" name="submit" id="submit" value="Post" class="btn btn-info pull-right">
+                        <input type="submit" name="submit" id="submit" data-postId='{{_id}}' value="Post" class="btn btn-info pull-right">
                     </div>
         </div>
     </form>
@@ -371,7 +377,6 @@
 </script>
 
 
-</script>
 
 <script id="dashboardEditPost" type="text/x-handlebars-template">
 
@@ -388,7 +393,7 @@
                     <input type="text" name="entry" class="form-control" value='{{entry}}'>
                     </div>
                     <div class="input-group">
-                        <input type="submit" name="submit" id="submit" value="Post" class="btn btn-info pull-right">
+                        <input type="submit" name="submit" id="submit" value="Edit Post" class="btn btn-info pull-right">
                     </div>
         </div>
     </form>
