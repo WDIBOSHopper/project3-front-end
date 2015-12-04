@@ -53,7 +53,8 @@ var bhHelpers = {
 
 var bhApi = {
 
-  bh: 'https://lit-brook-2992.herokuapp.com',
+  //bh: 'https://lit-brook-2992.herokuapp.com',
+  bh: 'http://localhost:3000',
 
   ajax: function(config, cb) {
     $.ajax(config).done(function(data, textStatus, jqxhr) {
@@ -195,6 +196,20 @@ var bhApi = {
 
 };
 
+var logoutHandler= function(){
+
+  $('#logout').on('click', function(e){
+    e.preventDefault();
+    bhApi.logout(function(err, data){
+      if (err){console.error}
+        else {
+          userData.userName = null;
+          userData.userId = null;
+          console.log("You have logged out");
+        }
+    });
+  });
+};
 
 var postHandler = function(){
   $('.delete-post').on('click', function(e) {
@@ -251,6 +266,7 @@ var postHandler = function(){
 var dashboardHandlers = function(){
   $(document).ready(function(){
     postHandler();
+    logoutHandler();
 
     $('#create-post').on('submit', function(e) {
       e.preventDefault();
@@ -305,6 +321,7 @@ var dashboardHandlers = function(){
 };
 
 $(document).ready(function(){
+  logoutHandler();
 
   $('#login-form').on('submit', function(e){
     e.preventDefault();
@@ -363,15 +380,6 @@ $(document).ready(function(){
     });
   });
 
-  $('#logout').on('click', function(e){
-    e.preventDefault();
-    bhApi.logout(function(err, data){
-      if (err){console.error}
-        else {
-          console.log("You have logged out");
-        }
-    });
-  });
   // initial rendering of posts onto homepage
   bhApi.getPosts(function (err, data) {
   if (err){
