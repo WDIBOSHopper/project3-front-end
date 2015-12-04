@@ -260,13 +260,14 @@ $(document).ready(function(){
         return false;
       }
         console.log("you have logged in");
+        userData.userName = data.userName;
+        userData.userId = data._id;
         bhApi.dashboard(function(err, data){
           if(err){console.error}
           else{
             console.log("this data is passed to handlebars");
             console.log(data);
-            userData.userName = data.userName;
-            userData.userId = data._id;
+
             bhHandlebars.displayDashboard(data);
             dashboardHandlers();
           }
