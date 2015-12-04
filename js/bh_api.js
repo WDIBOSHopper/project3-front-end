@@ -20,9 +20,20 @@ var bhHelpers = {
     return data;
   },
 
-  html2Object: function(event) {
-    $() 
+  refreshPosts: function(){
+    bhApi.getPosts(function (err, data) {
+      if (err){
+      console.error(err);
+      } else {
+      console.log('successful return of get Post request', data);
+      bhHandlebars.refreshPosts(data);
+      $(document).ready(function(){
+        dashboardHandlers();
+      });
+      }
+    }); 
   }
+
 };
 
 
@@ -173,12 +184,19 @@ var dashboardHandlers = function(){
       postData.owner = userData.userId;
       console.log(postData);
       var callback = function(err, data) {
-        if (err){console.error}
+        if (err){
+          console.error
+          $("#createPostMessage").val("Post created.");
+        }
         else {
           console.log("You have created a Post!");
+          $("#createPostMessage").html("Post created.");
+  
+          bhHelpers.refreshPosts();
         }
       };
       bhApi.createPost(postData, callback);
+
     });
 
 
@@ -222,9 +240,7 @@ var dashboardHandlers = function(){
         console.log(data);
         bhHandlebars.editPost(data); 
         $(document).ready(function(){
-          console.log("About to set a handler");
           $('#edit-post').on('click', function(e){
-              console.log("setting a handler");
               e.preventDefault();
               var postData = bhHelpers.form2object(this);
               var postId = $(e.target).data('postid');
@@ -234,6 +250,7 @@ var dashboardHandlers = function(){
                   console.log("Flagrant system error.");
                   console.error}
                 else {
+                  bhHelpers.refreshPosts();
                   console.log("You updated a Post!");
                 }
               };
