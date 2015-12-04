@@ -201,11 +201,13 @@ var postHandler = function(){
      e.preventDefault();
      var postId = $(e.target).data('postid');
      console.log("postid" + postId);
-     bhApi.getPost(postId, function (err, data){
+     bhApi.deletePost(postId, function (err, data){
       if (err){
         console.error(err);
       } else {
+        bhHelpers.refreshPosts();
         console.log("DELTETED");
+
          }
       });
     });
