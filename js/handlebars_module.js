@@ -40,8 +40,7 @@ var bhHandlebars = {
 
     var createPageTemplate = Handlebars.compile($("#dashboardCreatePage").html());
     Handlebars.registerPartial('createPagePartial', createPageTemplate);
-    console.log("This is where it ACUTALLY FINDS IT");
-    console.log($("#dashboardCreatePost").html());
+  
     var createPostTemplate = Handlebars.compile($("#dashboardCreatePost").html());
     Handlebars.registerPartial('createPostPartial', createPostTemplate);
 
