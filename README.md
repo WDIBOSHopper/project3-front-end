@@ -25,8 +25,14 @@ We wanted to get started before the Thanksgiving break, but we hadn't finished a
 
 At the beginning of project week, we started on the back end. Because we were all new to Express and Node, we all worked together on the back end. We used ScreenHero to program together. 
 
+Once the data schemas were setup, we performed extensive testing using mongoose crud, node script files & postman.  While this took a long time it was worthwhile, as once we moved onto integration with the front end we knew the issues were in the front end which saved us extensive time. 
+
+We had no team integration issues - my squad mates were wonderful.  Communication was active, shared everything, lots of pair programming.  We all learned a great deal.
+
 ##Major hurdles
 We had our login working at the beginning of the week, but it began working inconsistently mid-week, and was really difficult to debug. 
+
+Testing could be difficult at the times.  The tools seem more rudimentry that those availablein ruby/rails.  Got better with the testing/debuggin as the week went on.  Once we got to the fromt end using the Chrome developer, which prove very useful.
 
 ##User stories
 https://docs.google.com/document/d/1EgRVE8SYgImE6YjoaFvcTE_RiA2nTwvfGxlr5dVo1gc/
@@ -52,5 +58,8 @@ http://wdiboshopper.github.io/project3-front-end/
 
 ##Deployed Back end
 https://lit-brook-2992.herokuapp.com
+
+## Link to back end repo
+https://github.com/WDIBOSHopper/project3-back-end
 
 
