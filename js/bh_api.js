@@ -53,8 +53,8 @@ var bhHelpers = {
 
 var bhApi = {
 
-  //bh: 'https://lit-brook-2992.herokuapp.com',
-  bh: 'http://localhost:3000',
+  bh: 'https://lit-brook-2992.herokuapp.com',
+  //bh: 'http://localhost:3000',
 
   ajax: function(config, cb) {
     $.ajax(config).done(function(data, textStatus, jqxhr) {
