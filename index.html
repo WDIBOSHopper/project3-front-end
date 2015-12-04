@@ -279,15 +279,15 @@
 {{#each posts}}
  <div class="featurette index-posts-id"  >
 
-            <h2 class="featurette-heading index-posts-title">{{title}}
+            <h2 class="featurette-heading index-posts-title" id="entry-{{_id}}">{{title}}
                 <span class="text-muted index-posts-date">{{date}}</span>
             </h2>
-            <p class="lead index-posts-entry">{{entry}}</p>
+            <p class="lead index-posts-entry" id="entry-{{_id}}">{{entry}}</p>
         </div>
         <div>
         <span><button type="button" class="btn btn-link edit-post" data-postId='{{_id}}'>Edit</button></span>
         <span><button type="button" class="btn btn-link delete-post" data-postId='{{_id}}'>Delete</button></span>
-        </div>
+    </div>
 
         <hr class="featurette-divider">
   {{/each}}
@@ -342,6 +342,29 @@
             </div>
         </div>
 </div>
+
+</script>
+
+<script id="dashboardEditPost" type="text/x-handlebars-template">
+
+    <div class= "row-fluid">
+    <h2>Edit post<h2>
+    <form id="create-post">
+        <div class="form-group">
+            <label for="title">Post Title</label>
+                    <div class="input-group">
+                        <input type="text" class="form-control" name="title" id="InputTitle" placeholder="Title" value="{{title}}">
+                    </div>
+            <label for="entry">Blog post</label>
+                    <div class="input-group">
+                    <input type="text" name="entry" class="form-control" value='{{entry}}'>
+                    </div>
+                    <div class="input-group">
+                        <input type="submit" name="submit" id="submit" value="Post" class="btn btn-info pull-right">
+                    </div>
+        </div>
+    </form>
+    </div>
 
 </script>
 

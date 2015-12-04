@@ -1,40 +1,6 @@
-var signupData = {
-  username: "sam2",
-  email: "s@s",
-  password: "1"
-};
 
-var signinData = {
-  email: 'rachel3',
-  password: 123
-};
 
-var fakePostData = {
-  page: '56605e2b5309dfd1878b0842',
-  owner: '5660572cd7e2bb7882989d99',
-  title: "test",
-  entry: "We posted from the front end!"
-
- };
-
- var fakePostUpdateData = {
-  title: "UPDATE DATA test",
-  entry: "We updated a post from the front end!"
- };
-
-var fakePostId = "5660683bcfb42add8d9ed4ab";
-var fakePostDeleteId = "5660672fcfb42add8d9ed4a8";
-
-var fakePostUpdateData = {
-  page: '56605e2b5309dfd1878b0842',
-  owner: '5660572cd7e2bb7882989d99',
-  title: "UPDATEtest",
-  entry: "We updated a post from the front end!"
-
- };
-
- // fake data ends HERE
-var userData = {userName: null, userPage: null, userId: null};
+var userData = {userName: null, userId: null};
 
 var bhHelpers = {
   wrap: function (root, formData) {
@@ -52,6 +18,10 @@ var bhHelpers = {
       }
     });
     return data;
+  },
+
+  html2Object: function(event) {
+    $() 
   }
 };
 
@@ -123,6 +93,14 @@ var bhApi = {
     this.ajax({
       method: 'GET',
       url: this.bh + '/post',
+      dataType: 'json',
+    }, callback);
+  },
+
+  getOnePost: function(postId, callback) {
+    this.ajax({
+      method: 'GET',
+      url: this.bh + '/post/' + postId,
       dataType: 'json',
     }, callback);
   },
@@ -203,25 +181,25 @@ var dashboardHandlers = function(){
       bhApi.createPost(postData, callback);
     });
 
-    $('.edit-post').on('click', function(e) {
-     e.preventDefault();
-     var postId = $(e.target).data('postid');
-     console.log("postid" + postId);
-     bhApi.updatePost(fakePostUpdateData, postId, function (err, data){
-      if (err){
-        console.error(err);
-      } else {
-        console.log("UPDATED");
-         }
-      });
-    });
+    // $('.edit-post').on('click', function(e) {
+    //  e.preventDefault();
+    //  var postId = $(e.target).data('postid');
+    //  console.log("postid" + postId);
+    //  bhApi.updatePost(, postId, function (err, data){
+    //   if (err){
+    //     console.error(err);
+    //   } else {
+    //     console.log("UPDATED");
+    //      }
+    //   });
+    // });
 
 
     $('.delete-post').on('click', function(e) {
      e.preventDefault();
      var postId = $(e.target).data('postid');
      console.log("postid" + postId);
-     bhApi.deletePost(postId, function (err, data){
+     bhApi.getPost(postId, function (err, data){
       if (err){
         console.error(err);
       } else {
@@ -245,6 +223,19 @@ var dashboardHandlers = function(){
       };
       bhApi.createPage(pageData, callback);
     });
+
+    $('.edit-post').on('click',function(e) {
+     e.preventDefault();
+     var postId = $(e.target).data('postid');
+     console.log("postid" + postId);
+     bhApi.getOnePost(postId, function (err, data){
+      if (err){
+        console.error(err);
+      } else {
+        console.log(data);
+         }
+      });
+    });
   });
 };
 
@@ -259,7 +250,7 @@ $(document).ready(function(){
         console.error(err);
         return false;
       }
-        console.log("you have logged in");
+        console.log('login response data ' + data);
         userData.userName = data.userName;
         userData.userId = data._id;
         bhApi.dashboard(function(err, data){
@@ -327,11 +318,4 @@ $(document).ready(function(){
   });
   // end of get posts for homepage rendering
 
-  bhApi.deletePost(fakePostDeleteId, function(err, data){
-    if (err){
-    console.error(err);
-    } else {
-    console.log('You deleted a post. FOR REALS.', data);
-    }
-  });
 });

@@ -16,6 +16,12 @@ var bhHandlebars = {
 
   },
 
+  editPost: function(data){
+    var editPostTemplate = Handlebars.compile($("#dashboardEditPost").html());
+    var newHTML=editPostTemplate(data);
+    $('#createAndEditPost').html(newHTML);
+  },
+
   displayDashboard: function(navData){
 
 
