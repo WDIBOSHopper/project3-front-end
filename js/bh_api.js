@@ -191,7 +191,10 @@ var dashboardHandlers = function(){
         else {
           console.log("You have created a Post!");
           $("#createPostMessage").html("Post created.");
-  
+          setTimeout(function(){
+            $('#createPostMessage').html('');
+            }, 3000);
+
           bhHelpers.refreshPosts();
         }
       };
@@ -224,6 +227,10 @@ var dashboardHandlers = function(){
         if (err){console.error}
         else {
           console.log("You have created a Page!");
+          $("#createPageMessage").html("Page created.");
+          setTimeout(function(){
+            $('#createPageMessage').html('');
+            }, 3000);
         }
       };
       bhApi.createPage(pageData, callback);
