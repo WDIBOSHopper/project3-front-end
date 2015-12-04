@@ -28,7 +28,7 @@ var bhHelpers = {
       console.log('successful return of get Post request', data);
       bhHandlebars.refreshPosts(data);
       $(document).ready(function(){
-        dashboardHandlers();
+        postHandler();
       });
       }
     }); 
@@ -42,7 +42,7 @@ var bhHelpers = {
       console.log('successful return of get pages request', data);
       bhHandlebars.refreshPages(data);
       $(document).ready(function(){
-        dashboardHandlers();
+        //page handlers go here
       });
       }
     }); 
@@ -196,11 +196,61 @@ var bhApi = {
 };
 
 
+var postHandler = function(){
+  $('.delete-post').on('click', function(e) {
+     e.preventDefault();
+     var postId = $(e.target).data('postid');
+     console.log("postid" + postId);
+     bhApi.getPost(postId, function (err, data){
+      if (err){
+        console.error(err);
+      } else {
+        console.log("DELTETED");
+         }
+      });
+    });
+
+  $('.edit-post').on('click',function(e) {
+     e.preventDefault();
+     var postId = $(e.target).data('postid');
+     console.log("postid" + postId);
+     bhApi.getOnePost(postId, function (err, data){
+      if (err){
+        console.error(err);
+      } else {
+        console.log(data);
+        bhHandlebars.editPost(data); 
+        $(document).ready(function(){
+          $('#edit-post').on('click', function(e){
+              e.preventDefault();
+              var postData = bhHelpers.form2object(this);
+              var postId = $(e.target).data('postid');
+          
+              var callback = function(err, data) {
+                if (err){
+                  console.log("Flagrant system error.");
+                  console.error}
+                else {
+                  bhHelpers.refreshPosts();
+                  console.log("You updated a Post!");
+                }
+              };
+              bhApi.updatePost(postData, postId, callback);
+           });
+        });
+       }
+      });
+    });
+
+};
+
+
+
 var dashboardHandlers = function(){
   $(document).ready(function(){
-    $('#create-post').on('submit', function(e) {
-      console.log('you have entered the handler');
+    postHandler();
 
+    $('#create-post').on('submit', function(e) {
       e.preventDefault();
       var postData = bhHelpers.form2object(this);
       postData.owner = userData.userId;
@@ -225,18 +275,7 @@ var dashboardHandlers = function(){
     });
 
 
-    $('.delete-post').on('click', function(e) {
-     e.preventDefault();
-     var postId = $(e.target).data('postid');
-     console.log("postid" + postId);
-     bhApi.getPost(postId, function (err, data){
-      if (err){
-        console.error(err);
-      } else {
-        console.log("DELTETED");
-         }
-      });
-    });
+    
 
     $('#create-page').on('submit', function(e) {
       console.log('you have entered the handler');
@@ -259,37 +298,7 @@ var dashboardHandlers = function(){
       bhApi.createPage(pageData, callback);
     });
 
-    $('.edit-post').on('click',function(e) {
-     e.preventDefault();
-     var postId = $(e.target).data('postid');
-     console.log("postid" + postId);
-     bhApi.getOnePost(postId, function (err, data){
-      if (err){
-        console.error(err);
-      } else {
-        console.log(data);
-        bhHandlebars.editPost(data); 
-        $(document).ready(function(){
-          $('#edit-post').on('click', function(e){
-              e.preventDefault();
-              var postData = bhHelpers.form2object(this);
-              var postId = $(e.target).data('postid');
-              console.log(postData);
-              var callback = function(err, data) {
-                if (err){
-                  console.log("Flagrant system error.");
-                  console.error}
-                else {
-                  bhHelpers.refreshPosts();
-                  console.log("You updated a Post!");
-                }
-              };
-              bhApi.updatePost(postData, postId, callback);
-           });
-        });
-       }
-      });
-    });
+    
   });
 };
 
