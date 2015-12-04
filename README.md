@@ -32,14 +32,20 @@ We had our login working at the beginning of the week, but it began working inco
 https://docs.google.com/document/d/1EgRVE8SYgImE6YjoaFvcTE_RiA2nTwvfGxlr5dVo1gc/
 
 ##ERD
-https://docs.google.com/document/d/1tCr8Ge-QBRkpy5mAIW0im-q2PtpDF051hqVWv75tZUE/edit
+https://docs.google.com/document/d/1tCr8Ge-QBRkpy5mAIW0im-q2PtpDF051hqVWv75tZUE/
 
 ##Wireframes
+Landing Page https://github.com/WDIBOSHopper/project3-front-end/blob/master/images/landingPage.jpg
 
+Dashboard https://github.com/WDIBOSHopper/project3-front-end/blob/master/images/dashboard.jpg
+
+Registration Form https://github.com/WDIBOSHopper/project3-front-end/blob/master/images/registrationForm.jpg 
+
+Blog Page https://github.com/WDIBOSHopper/project3-front-end/blob/master/images/blogPage.jpg 
 
 
 ##Other planning documents
-https://docs.google.com/document/d/1CR1q_Nb4LeenFXmfJ6nM_MKeU2LzMCxl616_ngc1Kf4/edit
+https://docs.google.com/document/d/1CR1q_Nb4LeenFXmfJ6nM_MKeU2LzMCxl616_ngc1Kf4/
 
 ##Deployed Front-end
 http://wdiboshopper.github.io/project3-front-end/
