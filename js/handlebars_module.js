@@ -1,8 +1,4 @@
-// var data = {posts: [ {blogTitle: "Lauren's Blog", title: "My first post", content: "I posted a thing!", date: "2015-10-15"}, {blogTitle: "Bill's Blog",title: "My second post", content: "I posted a thing!", date: "2015-10-15"},{blogTitle: "Rachel's blog", title: "My third post", content: "I posted a thing!", date: "2015-10-15"}]};
 
-var blogData = {blogs: [ {blogName: "My Biking Passion", name: "My first blog", details: "I created a blog!", date: "2015-10-15"}, {blogName: "My Biking Passion", name: "Essential Biking Safety Gear", details: "I created a blog!", date: "2015-10-15"},{blogName: "Rachel's blog", name: "My third blog", details: "I created a thing!", date: "2015-10-15"}]};
-
-var navData = {username: "Rachel", url: "/Rachel/dogs", blogs: [ {blogName: "My Biking Passion", name: "My first blog", details: "I created a blog!", date: "2015-10-15"}, {blogName: "My Biking Passion", name: "Essential Biking Safety Gear", details: "I created a blog!", date: "2015-10-15"},{blogName: "Rachel's blog", name: "My third blog", details: "I created a thing!", date: "2015-10-15"}]};
 
 
 var bhHandlebars = {
@@ -24,6 +20,19 @@ var bhHandlebars = {
     $('#putEditPostHere').html(newHTML);
   },
 
+  refreshPosts: function(data){
+    var blogPostsDashboardTemplate = Handlebars.compile($('#blogPostsDashboard').html());newHTML= blogPostsDashboardTemplate(data);
+      $('#blogListGoesHere').html(newHTML);
+
+  },
+
+  refreshPages: function(data){
+    var pageListTemplate = Handlebars.compile($('#pageList').html());
+    newHTML= pageListTemplate(data);
+      $('#pageListGoesHere').html(newHTML);
+
+  },
+
   displayDashboard: function(navData){
 
     var navbarTemplate = Handlebars.compile($("#dashboardNavbar").html());
@@ -38,7 +47,6 @@ var bhHandlebars = {
 
     var pageListTemplate = Handlebars.compile($('#pageList').html());
     Handlebars.registerPartial('pageListPartial', pageListTemplate);
-    console.log("compiling template");
 
     var blogPostsDashboardTemplate = Handlebars.compile($('#blogPostsDashboard').html());
     Handlebars.registerPartial('blogPostDashboard', blogPostsDashboardTemplate);

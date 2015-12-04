@@ -32,6 +32,20 @@ var bhHelpers = {
       });
       }
     }); 
+  },
+
+  refreshPages: function(){
+    bhApi.getPages(function (err, data) {
+      if (err){
+      console.error(err);
+      } else {
+      console.log('successful return of get pages request', data);
+      bhHandlebars.refreshPages(data);
+      $(document).ready(function(){
+        dashboardHandlers();
+      });
+      }
+    }); 
   }
 
 };
@@ -156,6 +170,14 @@ var bhApi = {
     }, callback);
   },
 
+  getPages: function (callback) {
+    this.ajax({
+      method: 'GET',
+      url: this.bh + '/page',
+      dataType: 'json',
+    }, callback);
+  },
+
   createPage: function(data, callback) {
     this.ajax({
       method: 'POST',
@@ -231,6 +253,7 @@ var dashboardHandlers = function(){
           setTimeout(function(){
             $('#createPageMessage').html('');
             }, 3000);
+          bhHelpers.refreshPages();
         }
       };
       bhApi.createPage(pageData, callback);
