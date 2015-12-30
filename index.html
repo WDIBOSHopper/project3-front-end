@@ -364,7 +364,7 @@
 
     <div class= "row-fluid">
     <h2>Edit page<h2>
-    <form id="create-post">
+    <form id="edit-page">
         <h3>Editing {{url}}</h3>
         <div class="form-group">
             <label for="title">Page Title</label>
@@ -376,7 +376,7 @@
                     <input type="text" name="entry" class="form-control" value='{{content}}'>
                     </div>
                     <div class="input-group">
-                        <input type="submit" name="submit" id="submit" value="Edit Post" class="btn btn-info pull-right">
+                        <input type="submit" name="submit" data-pageId='{{_id}}' value="Edit Page" class="btn btn-info pull-right">
                     </div>
         </div>
     </form>
