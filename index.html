@@ -204,15 +204,15 @@
         <div class="form-group">
             <label for="InputName">Page Title</label>
                     <div class="input-group">
-                        <input type="text" class="form-control" name="title" id="InputTitle" placeholder="Title" required>
+                        <input type="text" class="form-control" name="title" id="pageTitle" placeholder="Title" required>
                     </div>
             <label for="InputPageName">Page Description</label>
                     <div class="input-group">
-                        <input type="text" name="content" class="form-control">
+                        <input type="text" id="pageContent" name="content" class="form-control">
                     </div>
             <label for="InputURL">Create a New URL</label>
                     <div class="input-group">
-                        <input type="text" name="url" value="{{username}}/" class="form-control">
+                        <input type="text"  name="url" value="{{username}}/" class="form-control">
                     </div>
                     <div class="input-group">
                         <input type="submit" name="submit" id="submit" value="Create Page" class="btn btn-info pull-right">
@@ -233,11 +233,11 @@
         <div class="form-group">
             <label for="title">Post Title</label>
                     <div class="input-group">
-                        <input type="text" class="form-control" name="title" id="InputTitle" placeholder="Title" required>
+                        <input type="text" class="form-control" name="title" id="postTitle" placeholder="Title" required>
                     </div>
             <label for="entry">Blog post</label>
                     <div class="input-group">
-                    <input type="text" name="entry" class="form-control">
+                    <input type="text" id="pageEntry" name="entry" class="form-control">
                     </div>
                     <div class="input-group">
                         <input type="submit" name="submit" id="submit" value="Post" class="btn btn-info pull-right">
@@ -343,7 +343,7 @@
         <div class="form-group">
             <label for="title">Post Title</label>
                     <div class="input-group">
-                        <input type="text" class="form-control" name="title" id="InputTitle" placeholder="Title" value="{{title}}">
+                        <input type="text" class="form-control" name="title" id="EditTitle" placeholder="Title" value="{{title}}">
                     </div>
             <label for="entry">Blog post</label>
                     <div class="input-group">

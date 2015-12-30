@@ -371,7 +371,7 @@ var dashboardHandlers = function(){
           setTimeout(function(){
             $('#createPostMessage').html('');
             }, 3000);
-
+          $("#postTitle, #pageEntry").val("");
           bhHelpers.refreshPosts();
         }
       };
@@ -395,6 +395,7 @@ var dashboardHandlers = function(){
           setTimeout(function(){
             $('#createPageMessage').html('');
             }, 3000);
+          $("#pageTitle, #pageContent").val("");
           bhHelpers.refreshPages();
         }
       };
