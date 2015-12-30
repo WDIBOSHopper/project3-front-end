@@ -246,8 +246,8 @@ var postHandler = function(){
               var callback = function(err, data) {
                 if (err){
                   console.log("Flagrant system error.");
-                  console.error}
-                else {
+                  console.error;
+                } else {
                   bhHelpers.refreshPosts();
                   console.log("You updated a Post!");
                 }
@@ -259,6 +259,55 @@ var postHandler = function(){
       });
     });
 
+};
+
+var pageHandlers = function(){
+  $('.delete-page').on('click', function(e) {
+     e.preventDefault();
+     var pageId = $(e.target).data('pageid');
+     console.log("pageid" + pageId);
+     bhApi.deletepage(pageId, function (err, data){
+      if (err){
+        console.error(err);
+      } else {
+        bhHelpers.refreshpages();
+        console.log("DELTETED");
+
+         }
+      });
+    });
+
+  $('.edit-page').on('click',function(e) {
+     e.preventDefault();
+     var pageId = $(e.target).data('pageid');
+     console.log("pageid" + pageId);
+     bhApi.getOnepage(pageId, function (err, data){
+      if (err){
+        console.error(err);
+      } else {
+        console.log(data);
+        bhHandlebars.editpage(data);
+        $(document).ready(function(){
+          $('#edit-page').on('click', function(e){
+              e.preventDefault();
+              var pageData = bhHelpers.form2object(this);
+              var pageId = $(e.target).data('pageid');
+
+              var callback = function(err, data) {
+                if (err){
+                  console.log("Flagrant system error.");
+                  console.error;
+                } else {
+                  bhHelpers.refreshpages();
+                  console.log("You updated a page!");
+                }
+              };
+              bhApi.updatePage(pageData, pageId, callback);
+           });
+        });
+       }
+      });
+    });
 };
 
 
@@ -291,8 +340,6 @@ var dashboardHandlers = function(){
       bhApi.createPost(postData, callback);
 
     });
-
-
 
 
     $('#create-page').on('submit', function(e) {
