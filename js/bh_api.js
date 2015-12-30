@@ -42,7 +42,7 @@ var bhHelpers = {
       console.log('successful return of get pages request', data);
       bhHandlebars.refreshPages(data);
       $(document).ready(function(){
-        //page handlers go here
+        pageHandler();
       });
       }
     });
@@ -179,6 +179,14 @@ var bhApi = {
     }, callback);
   },
 
+  getOnePage: function(pageId, callback) {
+    this.ajax({
+      method: 'GET',
+      url: this.bh + '/page/' + pageId,
+      dataType: 'json',
+    }, callback);
+  },
+
   createPage: function(data, callback) {
     this.ajax({
       method: 'POST',
@@ -191,6 +199,32 @@ var bhApi = {
         data: JSON.stringify(data),
         dataType: 'json',
       }, callback);
+  },
+
+  updatePage: function(data, pageId, callback) {
+   this.ajax({
+        method: 'PATCH',
+        // url: 'http://httpbin.org/page',
+        url: this.bh + '/page/' + pageId,
+        xhrFields: {
+          withCredentials: true
+        },
+        contentType: "application/json; charset=utf-8",
+        data: JSON.stringify(data),
+        dataType: 'json',
+      }, callback);
+  },
+
+  deletePage: function(pageId, callback) {
+    this.ajax({
+      method: 'DELETE',
+      // url: 'http://httpbin.org/page',
+      url: this.bh + '/page/' + pageId,
+      dataType: 'json',
+      xhrFields: {
+        withCredentials: true
+      }
+    }, callback);
   }
 
 
@@ -261,16 +295,16 @@ var postHandler = function(){
 
 };
 
-var pageHandlers = function(){
+var pageHandler = function(){
   $('.delete-page').on('click', function(e) {
      e.preventDefault();
      var pageId = $(e.target).data('pageid');
      console.log("pageid" + pageId);
-     bhApi.deletepage(pageId, function (err, data){
+     bhApi.deletePage(pageId, function (err, data){
       if (err){
         console.error(err);
       } else {
-        bhHelpers.refreshpages();
+        bhHelpers.refreshPages();
         console.log("DELTETED");
 
          }
@@ -281,12 +315,12 @@ var pageHandlers = function(){
      e.preventDefault();
      var pageId = $(e.target).data('pageid');
      console.log("pageid" + pageId);
-     bhApi.getOnepage(pageId, function (err, data){
+     bhApi.getOnePage(pageId, function (err, data){
       if (err){
         console.error(err);
       } else {
         console.log(data);
-        bhHandlebars.editpage(data);
+        bhHandlebars.editPage(data);
         $(document).ready(function(){
           $('#edit-page').on('click', function(e){
               e.preventDefault();
@@ -298,7 +332,7 @@ var pageHandlers = function(){
                   console.log("Flagrant system error.");
                   console.error;
                 } else {
-                  bhHelpers.refreshpages();
+                  bhHelpers.refreshPages();
                   console.log("You updated a page!");
                 }
               };
@@ -315,7 +349,9 @@ var pageHandlers = function(){
 var dashboardHandlers = function(){
   $(document).ready(function(){
     postHandler();
+    pageHandler();
     logoutHandler();
+
 
     $('#create-post').on('submit', function(e) {
       e.preventDefault();
@@ -324,7 +360,7 @@ var dashboardHandlers = function(){
       console.log(postData);
       var callback = function(err, data) {
         if (err){
-          console.error
+          console.error;
           $("#createPostMessage").val("Post created.");
         }
         else {
