@@ -147,7 +147,7 @@
 <script id="blogPosts" type="text/x-handlebars-template">
  {{#each posts}}
  <div class="featurette index-posts-id" id="about" postId = '{{_id}}'>
-            <img class="featurette-image img-circle img-responsive pull-right" src="http://placehold.it/500x500">
+            <img class="featurette-image img-circle img-responsive pull-right" src="https://s3.amazonaws.com/hopper-blog/images/{{id}}/{{item_image_file_name}}">
             <h2 class="featurette-heading index-posts-title">{{title}}
                 <span class="text-muted index-posts-date"></span>
             </h2>
@@ -157,7 +157,6 @@
         <hr class="featurette-divider">
   {{/each}}
 </script>
-
 
 <!--  {username: un , userId: id, pages: [_id: , title: , content: , url: ] post: [_id: , title: , entry: , date: , page: owner: ] -->
 
@@ -170,7 +169,7 @@
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                     <span class="sr-only">Toggle navigation</span>
-                
+
                 </button>
                 <a class="navbar-brand" href="#">Welcome, {{username}}!</a>
             </div>
