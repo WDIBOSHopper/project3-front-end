@@ -360,19 +360,20 @@
 
 
 
-<script id="dashboardEditPost" type="text/x-handlebars-template">
+<script id="dashboardEditPage" type="text/x-handlebars-template">
 
     <div class= "row-fluid">
-    <h2>Edit post<h2>
+    <h2>Edit page<h2>
     <form id="create-post">
+        <h3>Editing {{url}}</h3>
         <div class="form-group">
-            <label for="title">Post Title</label>
+            <label for="title">Page Title</label>
                     <div class="input-group">
                         <input type="text" class="form-control" name="title" id="InputTitle" placeholder="Title" value="{{title}}">
                     </div>
-            <label for="entry">Blog post</label>
+            <label for="entry">Page content</label>
                     <div class="input-group">
-                    <input type="text" name="entry" class="form-control" value='{{entry}}'>
+                    <input type="text" name="entry" class="form-control" value='{{content}}'>
                     </div>
                     <div class="input-group">
                         <input type="submit" name="submit" id="submit" value="Edit Post" class="btn btn-info pull-right">
