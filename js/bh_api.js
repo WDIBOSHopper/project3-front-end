@@ -284,6 +284,7 @@ var postHandler = function(){
                 } else {
                   bhHelpers.refreshPosts();
                   console.log("You updated a Post!");
+                  $("#putEditPostHere").html("");
                 }
               };
               bhApi.updatePost(postData, postId, callback);
@@ -334,6 +335,7 @@ var pageHandler = function(){
                 } else {
                   bhHelpers.refreshPages();
                   console.log("You updated a page!");
+                  $("#putEditPostHere").html("");
                 }
               };
               bhApi.updatePage(pageData, pageId, callback);
