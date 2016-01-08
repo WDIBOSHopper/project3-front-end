@@ -21,7 +21,7 @@
     <link href="css/one-page-wonder.css" rel="stylesheet">
     <!-- Dashboard css -->
     <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
-    <!-- <link rel="stylesheet" type="text/css" href="css/theme.css"> -->
+    <link rel="stylesheet" type="text/css" href="css/theme.css">
 
     <!-- Other css -->
     <link href="css/style.css" rel="stylesheet">
@@ -35,27 +35,14 @@
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" id="registerLink" href="#">Register</a>
+                
+            
 
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <li>
-                        <a href="#dashboard">Dashboard</a>
-                    </li>
-                    <li>
-                        <a href="./blog_template.html">My Blog</a>
-                    </li>
-                    <li>
-                        <a id="logout" href="#">LogOUT</a>
-                    </li>
+                   <a class="navbar-brand" id="registerLink" href="#">Register</a>
                 </ul>
 
                 <ul class="nav pull-right">
@@ -135,6 +122,8 @@
                 <div id='successAlert' class="alert alert-success">
                     <strong><span class="glyphicon glyphicon-ok"></span> Success! You have been registered.</strong>
                 </div>
+                <div id='wait' class="alert alert-success">Please wait.
+                </div>
                 <div id='errorAlert'class="alert alert-danger">
                     <span class="glyphicon glyphicon-remove"></span><strong> Invalid username.</strong>
             </div>
@@ -204,15 +193,15 @@
         <div class="form-group">
             <label for="InputName">Page Title</label>
                     <div class="input-group">
-                        <input type="text" class="form-control" name="title" id="InputTitle" placeholder="Title" required>
+                        <input type="text" class="form-control" name="title" id="pageTitle" placeholder="Title" required>
                     </div>
             <label for="InputPageName">Page Description</label>
                     <div class="input-group">
-                        <input type="text" name="content" class="form-control">
+                        <input type="text" id="pageContent" name="content" class="form-control">
                     </div>
             <label for="InputURL">Create a New URL</label>
                     <div class="input-group">
-                        <input type="text" name="url" value="{{username}}/" class="form-control">
+                        <input type="text"  name="url" value="{{username}}/" class="form-control">
                     </div>
                     <div class="input-group">
                         <input type="submit" name="submit" id="submit" value="Create Page" class="btn btn-info pull-right">
@@ -233,11 +222,11 @@
         <div class="form-group">
             <label for="title">Post Title</label>
                     <div class="input-group">
-                        <input type="text" class="form-control" name="title" id="InputTitle" placeholder="Title" required>
+                        <input type="text" class="form-control" name="title" id="postTitle" placeholder="Title" required>
                     </div>
             <label for="entry">Blog post</label>
                     <div class="input-group">
-                    <input type="text" name="entry" class="form-control">
+                    <input type="text" id="pageEntry" name="entry" class="form-control">
                     </div>
                     <div class="input-group">
                         <input type="submit" name="submit" id="submit" value="Post" class="btn btn-info pull-right">
@@ -343,7 +332,7 @@
         <div class="form-group">
             <label for="title">Post Title</label>
                     <div class="input-group">
-                        <input type="text" class="form-control" name="title" id="InputTitle" placeholder="Title" value="{{title}}">
+                        <input type="text" class="form-control" name="title" id="EditTitle" placeholder="Title" value="{{title}}">
                     </div>
             <label for="entry">Blog post</label>
                     <div class="input-group">
@@ -360,22 +349,23 @@
 
 
 
-<script id="dashboardEditPost" type="text/x-handlebars-template">
+<script id="dashboardEditPage" type="text/x-handlebars-template">
 
     <div class= "row-fluid">
-    <h2>Edit post<h2>
-    <form id="create-post">
+    <h2>Edit page<h2>
+    <form id="edit-page">
+        <h3>Editing {{url}}</h3>
         <div class="form-group">
-            <label for="title">Post Title</label>
+            <label for="title">Page Title</label>
                     <div class="input-group">
                         <input type="text" class="form-control" name="title" id="InputTitle" placeholder="Title" value="{{title}}">
                     </div>
-            <label for="entry">Blog post</label>
+            <label for="entry">Page content</label>
                     <div class="input-group">
-                    <input type="text" name="entry" class="form-control" value='{{entry}}'>
+                    <input type="text" name="content" class="form-control" value='{{content}}'>
                     </div>
                     <div class="input-group">
-                        <input type="submit" name="submit" id="submit" value="Edit Post" class="btn btn-info pull-right">
+                        <input type="submit" name="submit" data-pageId='{{_id}}' value="Edit Page" class="btn btn-info pull-right">
                     </div>
         </div>
     </form>
@@ -388,8 +378,6 @@
 
 <!-- handlebars -->
 <script src="./js/handlebars-v4.0.4.js"></script>
-<!-- jQuery -->
-   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js" integrity="sha256-ivk71nXhz9nsyFDoYoGf2sbjrR9ddh+XDkCcfZxjvcM=" crossorigin="anonymous"></script>
 
 
 <!-- ​Bootstrap -->
@@ -398,6 +386,7 @@
   <!--  Local Scripts -->
   <script src="./js/handlebars_module.js" type = "application/javascript"></script>
    <script src="./js/bh_api.js" type = "application/javascript"></script>
+   <script src="./js/app.js" type = "application/javascript"></script>
    <script src="./js/registration-form.js" type = "application/javascript"></script>
 </body>
 

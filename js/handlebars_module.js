@@ -20,6 +20,14 @@ var bhHandlebars = {
     $('#putEditPostHere').html(newHTML);
   },
 
+  editPage: function(data){
+    console.log(data);
+    var editData = data;
+    var editPageTemplate = Handlebars.compile($("#dashboardEditPage").html());
+    var newHTML = editPageTemplate(editData);
+    $('#putEditPostHere').html(newHTML);
+  },
+
   refreshPosts: function(data){
     var blogPostsDashboardTemplate = Handlebars.compile($('#blogPostsDashboard').html());newHTML= blogPostsDashboardTemplate(data);
       $('#blogListGoesHere').html(newHTML);

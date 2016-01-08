@@ -42,7 +42,7 @@ var bhHelpers = {
       console.log('successful return of get pages request', data);
       bhHandlebars.refreshPages(data);
       $(document).ready(function(){
-        //page handlers go here
+        pageHandler();
       });
       }
     });
@@ -55,6 +55,7 @@ var bhApi = {
 
   bh: 'https://lit-brook-2992.herokuapp.com',
   //bh: 'http://localhost:3000',
+
 
   ajax: function(config, cb) {
     $.ajax(config).done(function(data, textStatus, jqxhr) {
@@ -179,6 +180,14 @@ var bhApi = {
     }, callback);
   },
 
+  getOnePage: function(pageId, callback) {
+    this.ajax({
+      method: 'GET',
+      url: this.bh + '/page/' + pageId,
+      dataType: 'json',
+    }, callback);
+  },
+
   createPage: function(data, callback) {
     this.ajax({
       method: 'POST',
@@ -196,199 +205,5 @@ var bhApi = {
 
 };
 
-var logoutHandler= function(){
-
-  $('#logout').on('click', function(e){
-    e.preventDefault();
-    bhApi.logout(function(err, data){
-      if (err){console.error}
-        else {
-          userData.userName = null;
-          userData.userId = null;
-          console.log("You have logged out");
-        }
-    });
-  });
-};
-
-var postHandler = function(){
-  $('.delete-post').on('click', function(e) {
-     e.preventDefault();
-     var postId = $(e.target).data('postid');
-     console.log("postid" + postId);
-     bhApi.deletePost(postId, function (err, data){
-      if (err){
-        console.error(err);
-      } else {
-        bhHelpers.refreshPosts();
-        console.log("DELTETED");
-
-         }
-      });
-    });
-
-  $('.edit-post').on('click',function(e) {
-     e.preventDefault();
-     var postId = $(e.target).data('postid');
-     console.log("postid" + postId);
-     bhApi.getOnePost(postId, function (err, data){
-      if (err){
-        console.error(err);
-      } else {
-        console.log(data);
-        bhHandlebars.editPost(data);
-        $(document).ready(function(){
-          $('#edit-post').on('click', function(e){
-              e.preventDefault();
-              var postData = bhHelpers.form2object(this);
-              var postId = $(e.target).data('postid');
-
-              var callback = function(err, data) {
-                if (err){
-                  console.log("Flagrant system error.");
-                  console.error}
-                else {
-                  bhHelpers.refreshPosts();
-                  console.log("You updated a Post!");
-                }
-              };
-              bhApi.updatePost(postData, postId, callback);
-           });
-        });
-       }
-      });
-    });
-
-};
 
 
-
-var dashboardHandlers = function(){
-  $(document).ready(function(){
-    postHandler();
-    logoutHandler();
-
-    $('#create-post').on('submit', function(e) {
-      e.preventDefault();
-      var postData = bhHelpers.form2object(this);
-      postData.owner = userData.userId;
-      console.log(postData);
-      var callback = function(err, data) {
-        if (err){
-          console.error
-          $("#createPostMessage").val("Post created.");
-        }
-        else {
-          console.log("You have created a Post!");
-          $("#createPostMessage").html("Post created.");
-          setTimeout(function(){
-            $('#createPostMessage').html('');
-            }, 3000);
-
-          bhHelpers.refreshPosts();
-        }
-      };
-      bhApi.createPost(postData, callback);
-
-    });
-
-
-
-
-    $('#create-page').on('submit', function(e) {
-      console.log('you have entered the handler');
-
-      e.preventDefault();
-      var pageData = bhHelpers.form2object(this);
-      pageData.owner = userData.userId;
-      console.log(pageData);
-      var callback = function(err, data) {
-        if (err){console.error}
-        else {
-          console.log("You have created a Page!");
-          $("#createPageMessage").html("Page created.");
-          setTimeout(function(){
-            $('#createPageMessage').html('');
-            }, 3000);
-          bhHelpers.refreshPages();
-        }
-      };
-      bhApi.createPage(pageData, callback);
-    });
-
-
-  });
-};
-
-$(document).ready(function(){
-  logoutHandler();
-
-  $('#login-form').on('submit', function(e){
-    e.preventDefault();
-    var data = $(this).serialize();
-    console.log(data);
-    bhApi.login(data, function (err, data){
-      if (err){
-        console.error(err);
-        return false;
-      }
-        console.log('login response data ' + data);
-        userData.userName = data.userName;
-        userData.userId = data._id;
-        bhApi.dashboard(function(err, data){
-          if(err){console.error}
-          else{
-            console.log("this data is passed to handlebars");
-            console.log(data);
-
-            bhHandlebars.displayDashboard(data);
-            dashboardHandlers();
-          }
-      });
-
-      return false;
-    });
-  });
-
-  $('#registration-form').on('submit', function(e){
-    e.preventDefault();
-    var data = $(this).serialize();
-    console.log(data);
-    bhApi.register(data, function (err, data){
-      if (err){
-        console.error(err);
-        $('#errorAlert').show();
-        setTimeout(function(){
-          $('#errorAlert').hide();
-        }, 3000);
-      } else {
-      $('#successAlert').show();
-       setTimeout(function(){
-        $('#registration-div').hide();
-        }, 3000);
-        $('#successAlert').hide();
-        console.log(data.user._id);
-        console.log(data);
-        bhApi.createPage({title: "My Blog", content: "A blog for me.", url: data.user.userName,  owner: data.user._id}, function(err, data){
-            if (err){
-            console.error(err);
-            } else {
-              console.log('my page created');
-            }
-        });
-      }
-    });
-  });
-
-  // initial rendering of posts onto homepage
-  bhApi.getPosts(function (err, data) {
-  if (err){
-    console.error(err);
-    } else {
-    console.log('successful return of get Post request', data);
-    bhHandlebars.displayHomepage(data);
-    };
-  });
-  // end of get posts for homepage rendering
-
-});
