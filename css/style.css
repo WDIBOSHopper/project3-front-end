@@ -17,6 +17,10 @@
   display: none;
 }
 
+#wait {
+  display:none;
+}
+
 .dropdown-menu {
   padding: 15px; padding-bottom: 0px;
 }
